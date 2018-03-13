@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>try-catch | 祁彦凯</title>
+    <meta name="author" content="祁彦凯" />
+    <meta name="version" content="1.0.0" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="什么是异常机制什么是异常，比如说：医院–》 医生–》 身体某些部位异常–》 该部位和正常相比不同将受到影响
+异常：并不是语法出错，语法错误，无法编译，不会产生字节码文件，不能运行
+为什么学习异常机制？
+异常处理是衡量一门语言是否成熟的标准之一
+java、c++，c# 等都有异常处理
+异常处理都可以让程序有更好的容错性，是代码更加健壮
+if-else 其实是一种异常没有异常存在缺点：
+使用方法的返回值来表示异常情况有限，无法琼剧所有的情况
+异常流程和正常流程混合在一起，增大程序的复杂性，可读性也不" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta name="baidu-site-verification" content="F0CXvmUgA9" />
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <div class="app">
+        <header class="header clearfix">
+    <div id="nav" class="nav">
+    <button id="open-panel" class="open-panel"><i class="icon-library"></i></button>
+
+    <nav class="nav-inner">
+
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/前端">前端</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/后端">后端</a>
+        </li>
+        
+        
+        
+        <li class="nav-item nav-item-tag">
+            <a id="nav-tag" class="nav-link" href="#">标签</a>
+            <div id="nav-tags" class="nav-tag-wrap">
+                <i class="nav-tag-arrow"></i>
+                
+  <div class="widget-wrap">
+    <h3 class="widget-title">
+        <i class="icon-tag vm"></i>
+        <span class="vm">标签</span>
+    </h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/">String</a></li></ul>
+    </div>
+  </div>
+
+
+            </div>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/archives">归档</a>
+        </li>
+        
+        
+        
+
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://qiyankai.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是异常机制"><span class="toc-number">1.</span> <span class="toc-text">什么是异常机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异常："><span class="toc-number">2.</span> <span class="toc-text">异常：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么学习异常机制？"><span class="toc-number">3.</span> <span class="toc-text">为什么学习异常机制？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#没有异常存在缺点："><span class="toc-number">4.</span> <span class="toc-text">没有异常存在缺点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#针对上述的没有异常机制的缺点，我们提出"><span class="toc-number">5.</span> <span class="toc-text">针对上述的没有异常机制的缺点，我们提出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异常转译："><span class="toc-number">6.</span> <span class="toc-text">异常转译：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异常链："><span class="toc-number">7.</span> <span class="toc-text">异常链：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#上班车坏了迟到例子"><span class="toc-number">7.0.1.</span> <span class="toc-text">上班车坏了迟到例子</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content"><article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            try-catch
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/21/try-catch/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-21T03:54:46.000Z" itemprop="datePublished">2017-03-21</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="什么是异常机制"><a href="#什么是异常机制" class="headerlink" title="什么是异常机制"></a>什么是异常机制</h3><p>什么是异常，比如说：<br>医院–》 医生–》 身体某些部位异常–》 该部位和正常相比不同<br>将受到影响</p>
+<h3 id="异常："><a href="#异常：" class="headerlink" title="异常："></a>异常：</h3><p>并不是语法出错，语法错误，无法编译，不会产生字节码文件，不能运行</p>
+<h3 id="为什么学习异常机制？"><a href="#为什么学习异常机制？" class="headerlink" title="为什么学习异常机制？"></a>为什么学习异常机制？</h3><ul>
+<li>异常处理是衡量一门语言是否成熟的标准之一</li>
+<li>java、c++，c# 等都有异常处理</li>
+<li>异常处理都可以让程序有更好的容错性，是代码更加健壮</li>
+<li>if-else 其实是一种异常<h3 id="没有异常存在缺点："><a href="#没有异常存在缺点：" class="headerlink" title="没有异常存在缺点："></a>没有异常存在缺点：</h3></li>
+<li>使用方法的返回值来表示异常情况有限，无法琼剧所有的情况</li>
+<li>异常流程和正常流程混合在一起，增大程序的复杂性，可读性也不好</li>
+<li>随着系统规模的不断扩大，程序的可维护性极低<h3 id="针对上述的没有异常机制的缺点，我们提出"><a href="#针对上述的没有异常机制的缺点，我们提出" class="headerlink" title="针对上述的没有异常机制的缺点，我们提出"></a>针对上述的没有异常机制的缺点，我们提出</h3></li>
+</ul>
+<ol>
+<li>把异不同类型的异常情况描述成不同类</li>
+<li>分离异常流程代码和正常代码不一样<h3 id="异常转译："><a href="#异常转译：" class="headerlink" title="异常转译："></a>异常转译：</h3>当位于上层的子系统不需要关心底层的异常细节时，常见的做法就是捕获异常，把它转换为新的不同类型的异常，再抛出新的异常<h3 id="异常链："><a href="#异常链：" class="headerlink" title="异常链："></a>异常链：</h3>把原始的异常包装为新的异常类，从而形成多个异常的有序排列，有助于查找异常的根本原因</li>
+</ol>
+<h5 id="上班车坏了迟到例子"><a href="#上班车坏了迟到例子" class="headerlink" title="上班车坏了迟到例子"></a>上班车坏了迟到例子</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">class CarWrongException extends Exception&#123;</span><br><span class="line">    private static final long serialVersionUID = 1;</span><br><span class="line"></span><br><span class="line">    public CarWrongException(String message) &#123;</span><br><span class="line">        super(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//上班迟到的异常</span><br><span class="line">class WorkWrongException extends Exception&#123;</span><br><span class="line">    private static final long serialVersionUID = 1;</span><br><span class="line"></span><br><span class="line">    public WorkWrongException(String message) &#123;</span><br><span class="line">        super(message);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public WorkWrongException(String message, Throwable cause) &#123;</span><br><span class="line">        super(message, cause);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Car &#123;</span><br><span class="line">    //public static final int NO_OK = 0;</span><br><span class="line">    //public static final int OK = 1;</span><br><span class="line"></span><br><span class="line">    public void run() throws CarWrongException &#123;</span><br><span class="line">        int a = 2;</span><br><span class="line">        if (a == 2) &#123;</span><br><span class="line">            //System.out.println(&quot;爆胎了&quot;);</span><br><span class="line">            throw new CarWrongException(&quot;爆胎了&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            System.out.println(&quot;开车上班&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Worker &#123;</span><br><span class="line">    private Car car = null;</span><br><span class="line">    public static final int LATE = 0;</span><br><span class="line">    public static final int IN_TIME = 1;</span><br><span class="line"></span><br><span class="line">    public Worker(Car car) &#123;</span><br><span class="line">        this.car = car;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void gotoWork() throws WorkWrongException &#123;</span><br><span class="line">        try&#123;</span><br><span class="line">            car.run();//正常开车上班</span><br><span class="line">            System.out.println(&quot;好开心哦&quot;);</span><br><span class="line">        &#125;catch (CarWrongException e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            //车坏了，出现异常</span><br><span class="line">            this.walk();</span><br><span class="line">            throw new WorkWrongException(&quot;迟到原因&quot;+e.getMessage(),e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    private void walk() &#123;</span><br><span class="line">        System.out.println(&quot;走路上班&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class WhyDemo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Car car = new Car();</span><br><span class="line">        Worker worker = new Worker(car);</span><br><span class="line">        try &#123;</span><br><span class="line">            worker.gotoWork();</span><br><span class="line">            System.out.println(&quot;老板发奖金&quot;);</span><br><span class="line">        &#125;catch (WorkWrongException e)&#123;</span><br><span class="line">            System.out.println(&quot;老板揍我&quot;);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+    </section>
+</article>
+
+
+
+<div class="comments">
+    <div id="disqus_thread">
+        <p class="comment-tips">国内查看评论需要代理~</p>
+    </div>
+    <script>
+    window.disqus_config = function () {
+        this.language = 'zh';
+        this.page.url = 'https://qiyankai.github.io/2017/03/21/try-catch/';
+        this.page.title = 'try-catch';
+        this.page.identifier = '2017/03/21/try-catch/';
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://qiyankai.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+</footer>
+
+<script type="text/javascript" src="//s13.cnzz.com/z_stat.php?id=1272981253&amp;web_id=1272981253"></script>
+
+
+    </div>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+    
+    <script type="text/javascript">
+        $(function() {
+            var nodes = {
+                nav: $('#nav'),
+                aside: $('#aside'),
+                navTags: $('#nav-tags')
+            };
+
+            $('#open-panel, #aside-mask').on('click', function() {
+                nodes.aside.toggleClass('panel-show');
+            });
+            $('#nav-tag').on('click', function(event) {
+                event.preventDefault();console.log(nodes.navTags.attr('class'))
+                nodes.navTags.toggleClass('tag-show');console.log(nodes.navTags.attr('class'))
+            })/*.hover(function() {
+                nodes.navTags.addClass('tag-show');
+            }, function() {
+                nodes.navTags.removeClass('tag-show');
+            });*/
+
+            
+            $(document.body).scrollspy({target: '#aside-inner'});
+            
+        });
+    </script>
+
+</body>
+</html>

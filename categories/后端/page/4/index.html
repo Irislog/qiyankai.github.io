@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>Category: 后端 | 祁彦凯</title>
+    <meta name="author" content="祁彦凯" />
+    <meta name="version" content="1.0.0" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta name="baidu-site-verification" content="F0CXvmUgA9" />
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <div class="app">
+        <header class="header clearfix">
+    <div id="nav" class="nav">
+    <button id="open-panel" class="open-panel"><i class="icon-library"></i></button>
+
+    <nav class="nav-inner">
+
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/前端">前端</a>
+        </li>
+        
+        
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="/categories/后端">后端</a>
+        </li>
+        
+        
+        
+        <li class="nav-item nav-item-tag">
+            <a id="nav-tag" class="nav-link" href="#">标签</a>
+            <div id="nav-tags" class="nav-tag-wrap">
+                <i class="nav-tag-arrow"></i>
+                
+  <div class="widget-wrap">
+    <h3 class="widget-title">
+        <i class="icon-tag vm"></i>
+        <span class="vm">标签</span>
+    </h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/">String</a></li></ul>
+    </div>
+  </div>
+
+
+            </div>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/archives">归档</a>
+        </li>
+        
+        
+        
+
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://qiyankai.github.io"></form>
+
+        
+        
+
+        
+        <div class="author-meta">
+            
+            <div class="author-avatar">
+                <a href="/">
+                    <img src="/images/1.jpg" title="Sanonz">
+                </a>
+            </div>
+            
+            <div class="author-name">Kai</div>
+            <div class="author-work">Web Developer &amp; Designer</div>
+            <div class="author-location">
+                <i class="icon-location vm"></i>
+                <span class="vm">北京, 中国</span>
+            </div>
+            
+            <div class="author-thread-wrap">
+                <div class="author-threads clearfix">
+                    
+                    <a class="thread-item" href="https://github.com/qiyankai" target="_blank"><i class="icon-github"></i></a>
+                    
+                    
+                    <a class="thread-item" href="https://github.com/qiyankai" target="_blank"><i class="icon-circle-more"></i></a>
+                    
+                    
+                    <a class="thread-item" href="https://github.com/qiyankai" target="_blank"><i class="icon-twitter"></i></a>
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2017/03/14/Math/">Math</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/14/Math/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-14T03:54:46.000Z" itemprop="datePublished">2017-03-14</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h5 id="Math："><a href="#Math：" class="headerlink" title="Math："></a>Math：</h5><ol>
+<li>Math 包含用于执行基本数学的方法，如平方根、三角函数</li>
+<li>BigDecinal:算术、比较，哈希算法和格式转换toString（）方法提供的BigDecinal 的规范</li>
+<li>float 和double 都不能精确的小数,用BigDecinal 表示精确的金钱数字  </li>
+</ol>
+<p>发现一个类中的方法大多数都是非static 的，必须通过使用当前类的对象调用，但是，该类却没有方法向外暴露一个可以访问的构造器，所以这是一个单例模式，该类会提供一个static 的方法去给外界提供调用</p>
+<h5 id="用-Math-random-取34-274的例子"><a href="#用-Math-random-取34-274的例子" class="headerlink" title="用 Math.random() 取34-274的例子"></a>用 Math.random() 取34-274的例子</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">double ran = Math.random();</span><br><span class="line">//取23-157 间的数</span><br><span class="line">System.out.println((int)(ran*134)+23);</span><br></pre></td></tr></table></figure>
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2017/03/13/Date/">Date</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/13/Date/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-13T03:54:46.000Z" itemprop="datePublished">2017-03-13</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>DateFormat：可以完成日期的初始化操作<br>格式化（format）:  </p>
+<ol>
+<li>Date 类型对象—》String类型</li>
+<li>Stringformat（parse）：String 类型时间—》Date 类型  </li>
+</ol>
+<h5 id="Stringformat"><a href="#Stringformat" class="headerlink" title="Stringformat"></a>Stringformat</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Date &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //创建Date 对象</span><br><span class="line">        java.util.Date date = new java.util.Date();</span><br><span class="line">        long time = System.currentTimeMillis();</span><br><span class="line">        date = new java.util.Date(time);</span><br><span class="line">        System.out.println(date);</span><br><span class="line">        //Date 对象------》long</span><br><span class="line">        //返回1970 年以来，Date 对象表示的毫秒数</span><br><span class="line">        System.out.println(&quot;中国人的风格：&quot;+date.toLocaleString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="DateFormat"><a href="#DateFormat" class="headerlink" title="DateFormat"></a>DateFormat</h5><p>格式化操作format,默认是SHORT 风格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Date date = new Date();</span><br><span class="line">DateFormat dateFormat = DateFormat.getDateInstance();</span><br><span class="line">String time = dateFormat.format(date);</span><br><span class="line">System.out.println(time);</span><br></pre></td></tr></table></figure></p>
+<p>long 类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dateFormat = DateFormat.getDateInstance(DateFormat.LONG);</span><br><span class="line">System.out.println(dateFormat.format(date));</span><br></pre></td></tr></table></figure></p>
+<p>解析操作：String 类型时间—&gt;Date 类型,解析用parse<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dateFormat = DateFormat.getDateInstance();</span><br><span class="line">time = dateFormat.format(date);</span><br><span class="line">Date date1 = dateFormat.parse(time);</span><br><span class="line">System.out.println(date1);</span><br></pre></td></tr></table></figure></p>
+<h5 id="SimpleDateFormat"><a href="#SimpleDateFormat" class="headerlink" title="SimpleDateFormat"></a>SimpleDateFormat</h5><p>SimpleDateFormat 是DateFormat的子类,使用DateFormat 格式化的时间都是固定的格式  </p>
+<p>如果我们期望的格式为：2017 年9 月19 日<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String pattern = &quot;yyyy-MM-dd HH:mm:ss E&quot;;</span><br><span class="line">SimpleDateFormat simpleDateFormat = new SimpleDateFormat();</span><br><span class="line">simpleDateFormat.applyPattern(pattern);</span><br><span class="line">String time = simpleDateFormat.format(new Date());</span><br><span class="line">System.out.println(time);</span><br></pre></td></tr></table></figure></p>
+
+        
+    </section>
+</article>
+
+
+
+
+<nav class="page-nav">
+    <a class="extend prev" rel="prev" href="/categories/后端/page/3/">&laquo; 上一页</a><a class="page-number" href="/categories/后端/">1</a><a class="page-number" href="/categories/后端/page/2/">2</a><a class="page-number" href="/categories/后端/page/3/">3</a><span class="page-number current">4</span>
+</nav>
+
+
+</div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+</footer>
+
+<script type="text/javascript" src="//s13.cnzz.com/z_stat.php?id=1272981253&amp;web_id=1272981253"></script>
+
+
+    </div>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    
+    <script type="text/javascript">
+        $(function() {
+            var nodes = {
+                nav: $('#nav'),
+                aside: $('#aside'),
+                navTags: $('#nav-tags')
+            };
+
+            $('#open-panel, #aside-mask').on('click', function() {
+                nodes.aside.toggleClass('panel-show');
+            });
+            $('#nav-tag').on('click', function(event) {
+                event.preventDefault();console.log(nodes.navTags.attr('class'))
+                nodes.navTags.toggleClass('tag-show');console.log(nodes.navTags.attr('class'))
+            })/*.hover(function() {
+                nodes.navTags.addClass('tag-show');
+            }, function() {
+                nodes.navTags.removeClass('tag-show');
+            });*/
+
+            
+        });
+    </script>
+
+</body>
+</html>

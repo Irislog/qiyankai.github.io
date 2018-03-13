@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>继承 | 祁彦凯</title>
+    <meta name="author" content="祁彦凯" />
+    <meta name="version" content="1.0.0" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="继承的关系
+在原有类的继承之上，加以拓展，从而产生新的子类的过程。子类其实就是父类的一种特殊情况。
+
+
+狗继承动物，狗是一种特殊的动物
+猫继承动物，猫是一种特殊的动物
+
+    class Animal{        void sleep(){            System.out.println(“zZZ…”);        }    }    class Cat{        void catchMouse(){            System.out.println(“捉老" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta name="baidu-site-verification" content="F0CXvmUgA9" />
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <div class="app">
+        <header class="header clearfix">
+    <div id="nav" class="nav">
+    <button id="open-panel" class="open-panel"><i class="icon-library"></i></button>
+
+    <nav class="nav-inner">
+
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/前端">前端</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/后端">后端</a>
+        </li>
+        
+        
+        
+        <li class="nav-item nav-item-tag">
+            <a id="nav-tag" class="nav-link" href="#">标签</a>
+            <div id="nav-tags" class="nav-tag-wrap">
+                <i class="nav-tag-arrow"></i>
+                
+  <div class="widget-wrap">
+    <h3 class="widget-title">
+        <i class="icon-tag vm"></i>
+        <span class="vm">标签</span>
+    </h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/">String</a></li></ul>
+    </div>
+  </div>
+
+
+            </div>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/archives">归档</a>
+        </li>
+        
+        
+        
+
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://qiyankai.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#继承的关系"><span class="toc-number">1.</span> <span class="toc-text">继承的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承的语法格式"><span class="toc-number">2.</span> <span class="toc-text">继承的语法格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#子类可以继承到父类哪些成员："><span class="toc-number">3.</span> <span class="toc-text">子类可以继承到父类哪些成员：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#ex"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">ex:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#This关键字"><span class="toc-number">4.</span> <span class="toc-text">This关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#this的使用场景："><span class="toc-number">4.0.0.1.</span> <span class="toc-text">this的使用场景：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法覆盖"><span class="toc-number">5.</span> <span class="toc-text">方法覆盖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#王道的做法："><span class="toc-number">6.</span> <span class="toc-text">王道的做法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断是否覆盖的准则："><span class="toc-number">7.</span> <span class="toc-text">判断是否覆盖的准则：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#super关键字"><span class="toc-number">8.</span> <span class="toc-text">super关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#super的应用场景："><span class="toc-number">8.0.1.</span> <span class="toc-text">super的应用场景：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#子类的创建过程："><span class="toc-number">8.0.2.</span> <span class="toc-text">子类的创建过程：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#隐藏问题"><span class="toc-number">9.</span> <span class="toc-text">隐藏问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object"><span class="toc-number">10.</span> <span class="toc-text">Object</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类到底是什么？"><span class="toc-number">11.</span> <span class="toc-text">Object类到底是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#equals"><span class="toc-number">12.</span> <span class="toc-text">==  equals</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content"><article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            继承
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/29/继承/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-29T03:54:46.000Z" itemprop="datePublished">2017-03-29</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="继承的关系"><a href="#继承的关系" class="headerlink" title="继承的关系"></a>继承的关系</h3><blockquote>
+<p>在原有类的继承之上，加以拓展，从而产生新的子类的过程。子类其实就是父类的一种特殊情况。</p>
+</blockquote>
+<ul>
+<li>狗继承动物，狗是一种特殊的动物</li>
+<li>猫继承动物，猫是一种特殊的动物</li>
+</ul>
+<p><pre><br>    class Animal{<br>        void sleep(){<br>            System.out.println(“zZZ…”);<br>        }<br>    }<br>    class Cat{<br>        void catchMouse(){<br>            System.out.println(“捉老鼠”);<br>        }<br>    }<br>    class Dog{<br>        void watch(){<br>            System.out.println(“看门”);<br>        }<br>    }<br>    public static void main(String[] args){<br>        Animal a = new Animal();<br>    }<br></pre></p>
+<h3 id="继承的语法格式"><a href="#继承的语法格式" class="headerlink" title="继承的语法格式"></a>继承的语法格式</h3><blockquote>
+<p>class 子类名 extends 父类名{}</p>
+</blockquote>
+<h3 id="子类可以继承到父类哪些成员："><a href="#子类可以继承到父类哪些成员：" class="headerlink" title="子类可以继承到父类哪些成员："></a>子类可以继承到父类哪些成员：</h3><ol>
+<li>如果使用的public 或者protected 修饰。子类可以继承</li>
+<li>如果使用的是包访问权限（不写），如果父类与子类在同一个包下，可以继承，如果不在同一包下，不能继承</li>
+<li>父类的构造器，子类无法继承</li>
+<li>父类用private修饰，则子类不能继承</li>
+</ol>
+<h6 id="ex"><a href="#ex" class="headerlink" title="ex:"></a>ex:</h6><pre><code>Teacher teacher = new person();        //不可以！！！
+Person person = new Teacher();        //可以
+</code></pre><blockquote>
+<p>注意：<br>在java中的继承，只允许单继承，不允许继承多个类，但允许多重继承。</p>
+</blockquote>
+<h3 id="This关键字"><a href="#This关键字" class="headerlink" title="This关键字"></a>This关键字</h3><blockquote>
+<p>this 当前对象，哪一个对象调用了this所在的成员，this就是哪一个对象</p>
+</blockquote>
+<h6 id="this的使用场景："><a href="#this的使用场景：" class="headerlink" title="this的使用场景："></a>this的使用场景：</h6><ol>
+<li>解决成员变量和局部变量的二义性，必须使用setter方法</li>
+<li>同一个类中多个实例方法间互调</li>
+<li>将当前对象作为参数传递给另一个方法</li>
+<li>将当前对象作为方法的返回值</li>
+<li>构造器重载的相互作用，this必须写在第一行（this（）表示的就是无参数的构造器）</li>
+<li>static不能和this一起使用</li>
+</ol>
+<h3 id="方法覆盖"><a href="#方法覆盖" class="headerlink" title="方法覆盖"></a>方法覆盖</h3><ol>
+<li>子类拓展父类的时候，某个方法不适合子类本身</li>
+<li>方法重载Overload：两同一不同</li>
+<li>方法覆盖Override：一同两小一大<ul>
+<li>一同：方法的名称相同</li>
+<li>两小<ul>
+<li>子类方法的返回类型小于父类方法的返回类型</li>
+<li>子类方法不能抛出新的异常</li>
+</ul>
+</li>
+<li>一大：子类方法的修饰符必须大于父类方法的修饰符</li>
+</ul>
+</li>
+</ol>
+<h3 id="王道的做法："><a href="#王道的做法：" class="headerlink" title="王道的做法："></a>王道的做法：</h3><p>直接复制父类的方法定义到子类。重新定义方法体</p>
+<h3 id="判断是否覆盖的准则："><a href="#判断是否覆盖的准则：" class="headerlink" title="判断是否覆盖的准则："></a>判断是否覆盖的准则：</h3><p>java5后，用@Override判断方法是否覆盖</p>
+<blockquote>
+<p>注意：</p>
+<p>方法的覆盖、重载、只能对方法有效，类、字段、构造器没有覆盖的概念</p>
+</blockquote>
+<h3 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h3><ul>
+<li>this关键字：当前对象</li>
+<li>super关键字：当前对象的父类对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class SuperClass&#123;</span><br><span class="line">    public SuperClass() &#123;</span><br><span class="line">        System.out.println(&quot;super无参构造器&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public SuperClass(String x) &#123;</span><br><span class="line">        System.out.println(&quot;super有参构造器&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class SubClass extends SuperClass&#123;</span><br><span class="line">    public SubClass() &#123;</span><br><span class="line">        //默认会调用一次父类的无参构造函数</span><br><span class="line">        //super();</span><br><span class="line">        super(&quot;111&quot;);</span><br><span class="line">        System.out.println(&quot;SubClass的构造器&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class SuperDemo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //创建子类对象</span><br><span class="line">        SubClass subClass = new SubClass();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="super的应用场景："><a href="#super的应用场景：" class="headerlink" title="super的应用场景："></a>super的应用场景：</h5><ol>
+<li>在子类方法中，调用父类被覆盖的方法</li>
+<li>在子类方法中，返回父类被隐藏的成员变量（极少使用）</li>
+<li>在子类构造器中，调用父类的构造器父类的构造器，super([参数])</li>
+</ol>
+<h5 id="子类的创建过程："><a href="#子类的创建过程：" class="headerlink" title="子类的创建过程："></a>子类的创建过程：</h5><ol>
+<li>创建子类对象时，会调用子类的构造器，而再调用子类构造器之前，会先调用父类的构造器</li>
+<li>先对父类做初始化，再对子类做初始化</li>
+</ol>
+<h3 id="隐藏问题"><a href="#隐藏问题" class="headerlink" title="隐藏问题"></a>隐藏问题</h3><blockquote>
+<p>遮蔽：把之前的挡住了</p>
+</blockquote>
+<ol>
+<li>局部变量和成员变量同名，局部变量隐藏成员变量，使用this关键字解决</li>
+<li>在满足继承条件下（很少见）子类存在和弗雷同名的成员变量，子类变量隐藏了父类变量，使用super关键字解决</li>
+<li>在满足继承条件下（很少见）子类存在和父类相同的静态方法，静态方法不存在覆盖</li>
+</ol>
+<h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><blockquote>
+<p>Object类是所有类的根类</p>
+<p>一个类的直接或者间接的父类都是Object类</p>
+</blockquote>
+<h3 id="Object类到底是什么？"><a href="#Object类到底是什么？" class="headerlink" title="Object类到底是什么？"></a>Object类到底是什么？</h3><p>Object便是对象的意思，Object类就是对象的封装体，Object可以表示所有对象<br>所有对象，包括了数组都实现了Object类中的方法</p>
+<h3 id="equals"><a href="#equals" class="headerlink" title="==  equals"></a>==  equals</h3><p>判断当前对象this是否和Obj相等。<br>默认和==等价，默认情况下，比较的是内存地址</p>
+
+        
+    </section>
+</article>
+
+
+
+<div class="comments">
+    <div id="disqus_thread">
+        <p class="comment-tips">国内查看评论需要代理~</p>
+    </div>
+    <script>
+    window.disqus_config = function () {
+        this.language = 'zh';
+        this.page.url = 'https://qiyankai.github.io/2017/03/29/继承/';
+        this.page.title = '继承';
+        this.page.identifier = '2017/03/29/继承/';
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://qiyankai.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+</footer>
+
+<script type="text/javascript" src="//s13.cnzz.com/z_stat.php?id=1272981253&amp;web_id=1272981253"></script>
+
+
+    </div>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+    
+    <script type="text/javascript">
+        $(function() {
+            var nodes = {
+                nav: $('#nav'),
+                aside: $('#aside'),
+                navTags: $('#nav-tags')
+            };
+
+            $('#open-panel, #aside-mask').on('click', function() {
+                nodes.aside.toggleClass('panel-show');
+            });
+            $('#nav-tag').on('click', function(event) {
+                event.preventDefault();console.log(nodes.navTags.attr('class'))
+                nodes.navTags.toggleClass('tag-show');console.log(nodes.navTags.attr('class'))
+            })/*.hover(function() {
+                nodes.navTags.addClass('tag-show');
+            }, function() {
+                nodes.navTags.removeClass('tag-show');
+            });*/
+
+            
+            $(document.body).scrollspy({target: '#aside-inner'});
+            
+        });
+    </script>
+
+</body>
+</html>

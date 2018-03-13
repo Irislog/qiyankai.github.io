@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>单例模式 | 祁彦凯</title>
+    <meta name="author" content="祁彦凯" />
+    <meta name="version" content="1.0.0" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="概念单例：即只有一个实例对象
+单例的模式：
+饿汉式：效率低、线程安全、在第一次加载类时自动创建实例对象
+懒汉式：第一次调用实例对象时，将实例对象创建并返回，线程不安全，效率高
+
+如何实现单例：
+构造器私有化
+提供一个私有的静态的成员变量，并且自行创建该实例对象
+提供一个静态的公共的访问方法、将该实例对象返回调用者
+
+
+为了保护线程安全，使用synchronized
+
+饿汉式提供一个静态的、私有的、最终的该实例对象，并且赋值，这种方法在某些特定的情况下，占用内存
+
+public class Sin" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta name="baidu-site-verification" content="F0CXvmUgA9" />
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <div class="app">
+        <header class="header clearfix">
+    <div id="nav" class="nav">
+    <button id="open-panel" class="open-panel"><i class="icon-library"></i></button>
+
+    <nav class="nav-inner">
+
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/前端">前端</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/后端">后端</a>
+        </li>
+        
+        
+        
+        <li class="nav-item nav-item-tag">
+            <a id="nav-tag" class="nav-link" href="#">标签</a>
+            <div id="nav-tags" class="nav-tag-wrap">
+                <i class="nav-tag-arrow"></i>
+                
+  <div class="widget-wrap">
+    <h3 class="widget-title">
+        <i class="icon-tag vm"></i>
+        <span class="vm">标签</span>
+    </h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/">String</a></li></ul>
+    </div>
+  </div>
+
+
+            </div>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/archives">归档</a>
+        </li>
+        
+        
+        
+
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://qiyankai.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单例的模式："><span class="toc-number">2.</span> <span class="toc-text">单例的模式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何实现单例："><span class="toc-number">3.</span> <span class="toc-text">如何实现单例：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#饿汉式"><span class="toc-number">4.</span> <span class="toc-text">饿汉式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#懒汉式"><span class="toc-number">5.</span> <span class="toc-text">懒汉式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#懒汉式改进"><span class="toc-number">6.</span> <span class="toc-text">懒汉式改进</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content"><article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            单例模式
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/04/01/单例/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-04-01T03:56:46.000Z" itemprop="datePublished">2017-04-01</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>单例：即只有一个实例对象</p>
+<h3 id="单例的模式："><a href="#单例的模式：" class="headerlink" title="单例的模式："></a>单例的模式：</h3><ul>
+<li>饿汉式：效率低、线程安全、在第一次加载类时自动创建实例对象</li>
+<li>懒汉式：第一次调用实例对象时，将实例对象创建并返回，线程不安全，效率高</li>
+</ul>
+<h3 id="如何实现单例："><a href="#如何实现单例：" class="headerlink" title="如何实现单例："></a>如何实现单例：</h3><ol>
+<li>构造器私有化</li>
+<li>提供一个私有的静态的成员变量，并且自行创建该实例对象</li>
+<li>提供一个静态的公共的访问方法、将该实例对象返回调用者</li>
+</ol>
+<blockquote>
+<p>为了保护线程安全，使用synchronized</p>
+</blockquote>
+<h3 id="饿汉式"><a href="#饿汉式" class="headerlink" title="饿汉式"></a>饿汉式</h3><p>提供一个静态的、私有的、最终的该实例对象，并且赋值，这种方法在某些特定的情况下，占用内存</p>
+<pre>
+public class SingleDemo01 {
+    public static void main(String[] args) {
+
+    }
+}
+class Demo01{
+    //提供一个私有的静态的成员变量，并且自行创建该实例对象
+    private static Demo01 instance = new Demo01();
+    //构造器私有化
+    private Demo01(){
+    }
+    //提供一个公共的静态的访问方法，将该实例对象返回给调用者
+    public static Demo01 getInstance(){
+        return instance;
+    }
+}
+</pre>
+
+<h3 id="懒汉式"><a href="#懒汉式" class="headerlink" title="懒汉式"></a>懒汉式</h3><p>提供一个私有的，静态的实例对象，当时不赋值，等待调用时赋值。</p>
+<pre>
+public class SingleDemo02 {
+    public static void main(String[] args) {
+        Demo02 demo01 = Demo02.getInstance();
+        Demo02 demo02 = Demo02.getInstance();
+        System.out.println(demo01==demo02);
+    }
+}
+class Demo02{
+    //构造器私有化
+    private Demo02(){
+
+    }
+    /*
+    * 提供一个私有的静态的实例化对象的引用，但此时不创键对象、仅仅声明
+    * */
+    private static Demo02 instance = null;
+    //提供一个静态的私有的
+    public static Demo02 getInstance(){
+        if (instance==null){
+            instance = new Demo02();
+        }
+        return instance;
+    }
+}
+</pre>
+
+<h3 id="懒汉式改进"><a href="#懒汉式改进" class="headerlink" title="懒汉式改进"></a>懒汉式改进</h3><p>懒汉模式有线程安全问题，将初始化该例对象放入synchronized同步代码块</p>
+<pre>
+class SingletonTest4 {
+    //定义一个私有的构造方法
+    public SingletonTest4() {
+
+    }
+
+    //将自身的实例对象设置为一个属性
+    //并加上static
+    //注意不使用final
+    //加上volatile 保证多线程访问时候
+    /*
+    * 第一、加上volotitle 保证多线程访问时候instance 变量的可见性
+    * 第二、避免instance 初始化的时候其他变量还未赋值完成的时候，被另外的线程调用
+    *
+    * */
+    private static volatile SingletonTest4 instance;
+
+    //静态方法返回该类的实例
+    //什么时候调用什么时候实例化
+    //问题：在多线程访问时，会造成重复初始化
+    public static SingletonTest4 getInstance() {
+        //对象实例化时判断与否
+        if (instance==null){
+            //同步代码块（对象未初始化的时候，使用同步代码块），保证我们多线程访问的时候对象在第一次创建后，不再重复创建
+            synchronized (SingletonTest4.class){
+                //未初始化，则初始instance 变量
+                if (instance==null){
+                    instance = new SingletonTest4();
+                }
+            }
+        }
+        return instance;
+    }
+}
+</pre>
+        
+    </section>
+</article>
+
+
+
+<div class="comments">
+    <div id="disqus_thread">
+        <p class="comment-tips">国内查看评论需要代理~</p>
+    </div>
+    <script>
+    window.disqus_config = function () {
+        this.language = 'zh';
+        this.page.url = 'https://qiyankai.github.io/2017/04/01/单例/';
+        this.page.title = '单例模式';
+        this.page.identifier = '2017/04/01/单例/';
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://qiyankai.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+</footer>
+
+<script type="text/javascript" src="//s13.cnzz.com/z_stat.php?id=1272981253&amp;web_id=1272981253"></script>
+
+
+    </div>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+    
+    <script type="text/javascript">
+        $(function() {
+            var nodes = {
+                nav: $('#nav'),
+                aside: $('#aside'),
+                navTags: $('#nav-tags')
+            };
+
+            $('#open-panel, #aside-mask').on('click', function() {
+                nodes.aside.toggleClass('panel-show');
+            });
+            $('#nav-tag').on('click', function(event) {
+                event.preventDefault();console.log(nodes.navTags.attr('class'))
+                nodes.navTags.toggleClass('tag-show');console.log(nodes.navTags.attr('class'))
+            })/*.hover(function() {
+                nodes.navTags.addClass('tag-show');
+            }, function() {
+                nodes.navTags.removeClass('tag-show');
+            });*/
+
+            
+            $(document.body).scrollspy({target: '#aside-inner'});
+            
+        });
+    </script>
+
+</body>
+</html>

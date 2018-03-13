@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>策略设计模式 | 祁彦凯</title>
+    <meta name="author" content="祁彦凯" />
+    <meta name="version" content="1.0.0" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="策略设计模式软件的设计模式，指的是由某个行为，但是在某个场景中，该行为有不同的实现算法。
+实现方法
+定义一个接口，创建功能方法。
+各个策略类实现接口，并在功能方法中实现各自不同的逻辑。
+在调用者类中创建一个接口对象，重写调用者构造器，将传进来的策略类的对象赋值给接口对象，并在之后的功能方法中调用策略类对象的功能方法
+
+
+比如：每个人都得交税：
+
+—–&amp;gt;美国税   %4
+—–&amp;gt;中国     %20
+不一样—–&amp;gt; 税收算法不一样
+策略模式的实现
+什么是策略
+定义了不同的算法，并且之" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta name="baidu-site-verification" content="F0CXvmUgA9" />
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <div class="app">
+        <header class="header clearfix">
+    <div id="nav" class="nav">
+    <button id="open-panel" class="open-panel"><i class="icon-library"></i></button>
+
+    <nav class="nav-inner">
+
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/前端">前端</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/后端">后端</a>
+        </li>
+        
+        
+        
+        <li class="nav-item nav-item-tag">
+            <a id="nav-tag" class="nav-link" href="#">标签</a>
+            <div id="nav-tags" class="nav-tag-wrap">
+                <i class="nav-tag-arrow"></i>
+                
+  <div class="widget-wrap">
+    <h3 class="widget-title">
+        <i class="icon-tag vm"></i>
+        <span class="vm">标签</span>
+    </h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/">String</a></li></ul>
+    </div>
+  </div>
+
+
+            </div>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/archives">归档</a>
+        </li>
+        
+        
+        
+
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://qiyankai.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#策略设计模式"><span class="toc-number">1.</span> <span class="toc-text">策略设计模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现方法"><span class="toc-number">2.</span> <span class="toc-text">实现方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#策略模式的实现"><span class="toc-number">3.</span> <span class="toc-text">策略模式的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优势："><span class="toc-number">4.</span> <span class="toc-text">优势：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开发中应用场景："><span class="toc-number">5.</span> <span class="toc-text">开发中应用场景：</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content"><article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            策略设计模式
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/30/策略模式/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-30T03:54:46.000Z" itemprop="datePublished">2017-03-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="策略设计模式"><a href="#策略设计模式" class="headerlink" title="策略设计模式"></a>策略设计模式</h3><p>软件的设计模式，指的是由某个行为，但是在某个场景中，该行为有不同的实现算法。</p>
+<h3 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h3><ul>
+<li>定义一个接口，创建功能方法。</li>
+<li>各个策略类实现接口，并在功能方法中实现各自不同的逻辑。</li>
+<li>在调用者类中创建一个接口对象，重写调用者构造器，将传进来的策略类的对象赋值给接口对象，并在之后的功能方法中调用策略类对象的功能方法</li>
+</ul>
+<blockquote>
+<p>比如：每个人都得交税：</p>
+</blockquote>
+<p>—–&gt;美国税   %4</p>
+<p>—–&gt;中国     %20</p>
+<p>不一样—–&gt; 税收算法不一样</p>
+<h3 id="策略模式的实现"><a href="#策略模式的实现" class="headerlink" title="策略模式的实现"></a>策略模式的实现</h3><ol>
+<li>什么是策略<blockquote>
+<p>定义了不同的算法，并且之间可以相互替换</p>
+</blockquote>
+</li>
+<li>策略模式的喊出<blockquote>
+<p>可以动态的改变对象的行为</p>
+</blockquote>
+</li>
+<li>策略设计原则<blockquote>
+<p>把一个类中经常改变过着将来可能改变的部分提取出来</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="优势："><a href="#优势：" class="headerlink" title="优势："></a>优势：</h3><p>采用策略模式可以避免由于使用条件语句带来的代码混乱，提高应用程序的灵活性、条理性<br>可以随意的调用实现了接口的类的行为</p>
+<h3 id="开发中应用场景："><a href="#开发中应用场景：" class="headerlink" title="开发中应用场景："></a>开发中应用场景：</h3><p>  当一个用用程序需要是想一种特定的服务或者功能，而且该程序有多种实现方法的时候使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">//首先定义一个策略接口</span><br><span class="line">//三个锦囊</span><br><span class="line">interface IStrategy &#123;</span><br><span class="line">    //每个锦囊都是一个可执行的算法</span><br><span class="line">    public void operate();</span><br><span class="line">&#125;</span><br><span class="line">//然后再写三个妙计（实现类）</span><br><span class="line">//1、找乔国老，使孙权不能杀刘备</span><br><span class="line">class BackDoor implements IStrategy &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void operate() &#123;</span><br><span class="line">        System.out.println(&quot;求大佬帮忙，让吴国给孙权施加压力&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//2、求吴国老帮忙开个绿灯---&gt; 放行</span><br><span class="line">class GivenGreenLight implements IStrategy &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void operate() &#123;</span><br><span class="line">        System.out.println(&quot;开绿灯&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//3、孙夫人断后---&gt; 挡住追兵</span><br><span class="line">class BlockEnemy implements IStrategy&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void operate() &#123;</span><br><span class="line">        System.out.println(&quot;孙夫人断后&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//妙计有了，那些地方需要放这些妙计，放在锦囊里</span><br><span class="line">//锦囊</span><br><span class="line">class Context&#123;</span><br><span class="line">    //构造函数，你要使用哪条妙计</span><br><span class="line">    private IStrategy iStrategy;</span><br><span class="line"></span><br><span class="line">    public Context(IStrategy iStrategy) &#123;</span><br><span class="line">        this.iStrategy = iStrategy;</span><br><span class="line">    &#125;</span><br><span class="line">    //使用妙计，出招</span><br><span class="line">    public void operate()&#123;</span><br><span class="line">        this.iStrategy.operate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//赵云带着刘备去娶孙尚香，还有三个锦囊</span><br><span class="line">public class textDemo02 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">        //赵云出场，依次拆锦囊</span><br><span class="line">        Context context;</span><br><span class="line">        //刚到吴国，拆第一个</span><br><span class="line">        System.out.println(&quot;-----刚到吴国，拆第一个&quot;);</span><br><span class="line">        context = new Context(new BackDoor());</span><br><span class="line">        context.operate();</span><br><span class="line">        System.out.println(&quot;\n\n\n&quot;);</span><br><span class="line">        //刘备乐不思蜀，拆第二个</span><br><span class="line">        System.out.println(&quot;-----刘备乐不思蜀，拆第二个&quot;);</span><br><span class="line">        context = new Context(new GivenGreenLight());</span><br><span class="line">        context.operate();</span><br><span class="line">        System.out.println(&quot;\n\n\n&quot;);</span><br><span class="line">        //孙权的小兵追来了，怎么办？</span><br><span class="line">        System.out.println(&quot;-----孙权的小兵追来了，怎么办？&quot;);</span><br><span class="line">        context = new Context(new BlockEnemy());</span><br><span class="line">        context.operate();</span><br><span class="line"></span><br><span class="line">        /*</span><br><span class="line">        * 问题</span><br><span class="line">        * 赵云不知道那个策略，只知道拆第一个锦囊</span><br><span class="line">        * 但不知道第一个是BackDoor</span><br><span class="line">        * BackDoor，GiveGreen，BlockEnemy</span><br><span class="line">        *</span><br><span class="line">        * 策略设计模式的优点：高内聚，低耦合</span><br><span class="line">        *</span><br><span class="line">        **/</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        
+    </section>
+</article>
+
+
+
+<div class="comments">
+    <div id="disqus_thread">
+        <p class="comment-tips">国内查看评论需要代理~</p>
+    </div>
+    <script>
+    window.disqus_config = function () {
+        this.language = 'zh';
+        this.page.url = 'https://qiyankai.github.io/2017/03/30/策略模式/';
+        this.page.title = '策略设计模式';
+        this.page.identifier = '2017/03/30/策略模式/';
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://qiyankai.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+</footer>
+
+<script type="text/javascript" src="//s13.cnzz.com/z_stat.php?id=1272981253&amp;web_id=1272981253"></script>
+
+
+    </div>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+    
+    <script type="text/javascript">
+        $(function() {
+            var nodes = {
+                nav: $('#nav'),
+                aside: $('#aside'),
+                navTags: $('#nav-tags')
+            };
+
+            $('#open-panel, #aside-mask').on('click', function() {
+                nodes.aside.toggleClass('panel-show');
+            });
+            $('#nav-tag').on('click', function(event) {
+                event.preventDefault();console.log(nodes.navTags.attr('class'))
+                nodes.navTags.toggleClass('tag-show');console.log(nodes.navTags.attr('class'))
+            })/*.hover(function() {
+                nodes.navTags.addClass('tag-show');
+            }, function() {
+                nodes.navTags.removeClass('tag-show');
+            });*/
+
+            
+            $(document.body).scrollspy({target: '#aside-inner'});
+            
+        });
+    </script>
+
+</body>
+</html>

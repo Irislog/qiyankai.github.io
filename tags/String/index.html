@@ -7,7 +7,7 @@
 
     
 
-    <title>归档 | 祁彦凯</title>
+    <title>Tag: String | 祁彦凯</title>
     <meta name="author" content="祁彦凯" />
     <meta name="version" content="1.0.0" />
     <meta name="keywords" content="" />
@@ -71,7 +71,7 @@
         
         
         
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="/archives">归档</a>
         </li>
         
@@ -127,123 +127,54 @@
 </header>
 
         <div id="content" class="content">
-
+    <article class="article" itemscope itemprop="blogPost">
     
-    
-    
-    
-    <section class="archives-wrap">
-    <div class="archive-year-wrap">
-    <a href="/archives/2018" class="archive-year">2018</a>
-    </div>
-    <ol class="archives">
-    
-
-    <li class="archive-section-item">
-        <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <a href="/2018/02/28/hello-world/">Hello World</a>
-            (<a class="article-date" href="/2018/02/28/hello-world/">
-    
-    <time datetime="2018-02-28T02:46:36.062Z" itemprop="datePublished">2/28</time>
-</a>
-)
-        </header>
-    </div>
-</article>
-    </li>
-
-    
-    
-    
-    </ol></section>
-    
-    
-    <section class="archives-wrap">
-    <div class="archive-year-wrap">
-    <a href="/archives/2017" class="archive-year">2017</a>
-    </div>
-    <ol class="archives">
-    
-
-    <li class="archive-section-item">
-        <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <a href="/2017/04/01/单例/">单例模式</a>
-            (<a class="article-date" href="/2017/04/01/单例/">
-    
-    <time datetime="2017-04-01T03:56:46.000Z" itemprop="datePublished">4/1</time>
-</a>
-)
-        </header>
-    </div>
-</article>
-    </li>
-
-    
-    
-
-    <li class="archive-section-item">
-        <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2017/03/30/String面试/">关于String的面试题</a>
-            (<a class="article-date" href="/2017/03/30/String面试/">
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/30/String面试/">
     
-    <time datetime="2017-03-30T03:56:46.000Z" itemprop="datePublished">3/30</time>
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-30T03:56:46.000Z" itemprop="datePublished">2017-03-30</time>
 </a>
-)
-        </header>
-    </div>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/String/">String</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="面试题一："><a href="#面试题一：" class="headerlink" title="面试题一："></a>面试题一：</h3><p>输出结果是什么<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str1 = &quot;ABCD&quot;;</span><br><span class="line">String str2 = new String(&quot;ABCD&quot;);</span><br><span class="line">System.out.println(str1==str2);       // false</span><br><span class="line">System.out.println(str1.equals(str2));// true</span><br></pre></td></tr></table></figure></p>
+<h3 id="面试题二："><a href="#面试题二：" class="headerlink" title="面试题二："></a>面试题二：</h3><p>比较下面六个字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">String str1 = &quot;ABCD&quot;;</span><br><span class="line">String str2 = &quot;A&quot; + &quot;B&quot; + &quot;C&quot; + &quot;D&quot;;</span><br><span class="line">String str3 = &quot;AB&quot; + &quot;CD&quot;;</span><br><span class="line">String str4 = new String(&quot;ABCD&quot;);</span><br><span class="line">String temp = &quot;AB&quot;;</span><br><span class="line">String str5 = temp + &quot;CD&quot;;</span><br><span class="line">String str6 = getXx() + &quot;CD&quot;;</span><br><span class="line">        System.out.println(str1 == str2);</span><br><span class="line">        System.out.println(str1 == str3);</span><br><span class="line">        System.out.println(str1 == str4);</span><br><span class="line">        System.out.println(str1 == str5);</span><br><span class="line">        System.out.println(str1 == str6);</span><br></pre></td></tr></table></figure></p>
+<h3 id="面试题三：创建下面两行代码，分别创建了几个对象？"><a href="#面试题三：创建下面两行代码，分别创建了几个对象？" class="headerlink" title="面试题三：创建下面两行代码，分别创建了几个对象？"></a>面试题三：创建下面两行代码，分别创建了几个对象？</h3><ol>
+<li><code>String name5 = &quot;will&quot;;</code>  <blockquote>
+<p>创建了1 | 0 个String 对象<br>在常量池中已经存在“will” ，则直接引用,如果不存储，先创建一个“will”对象,最多创建一个String 对象，最少不创键。</p>
+</blockquote>
+</li>
+<li><code>String name6 = new String (&quot;will&quot;);</code>  <blockquote>
+<p>创建了1 | 2 个String 对象，new 决定了堆空间的创建对象，必须有一个，若常量池中有“will”，则直接引用，不存在，先创建一个“will”对象，最多有两个对象，至少创建一个<br>new 关键字，绝对会在堆空间创建一个内存区域。</p>
+</blockquote>
+</li>
+</ol>
+
+        
+    </section>
 </article>
-    </li>
-
-    
-    
-
-    <li class="archive-section-item">
-        <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <a href="/2017/03/30/代理设计模式/">代理模式</a>
-            (<a class="article-date" href="/2017/03/30/代理设计模式/">
-    
-    <time datetime="2017-03-30T03:56:46.000Z" itemprop="datePublished">3/30</time>
-</a>
-)
-        </header>
-    </div>
-</article>
-    </li>
-
-    
-    
-
-    <li class="archive-section-item">
-        <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <a href="/2017/03/30/策略模式/">策略设计模式</a>
-            (<a class="article-date" href="/2017/03/30/策略模式/">
-    
-    <time datetime="2017-03-30T03:54:46.000Z" itemprop="datePublished">3/30</time>
-</a>
-)
-        </header>
-    </div>
-</article>
-    </li>
-
-
-</ol></section>
 
 
 
-<nav class="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/2/">下一页 &raquo;</a>
-</nav>
+
 
 </div>
         <footer class="footer">

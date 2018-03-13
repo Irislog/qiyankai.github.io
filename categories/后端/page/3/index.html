@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>Category: 后端 | 祁彦凯</title>
+    <meta name="author" content="祁彦凯" />
+    <meta name="version" content="1.0.0" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta name="baidu-site-verification" content="F0CXvmUgA9" />
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <div class="app">
+        <header class="header clearfix">
+    <div id="nav" class="nav">
+    <button id="open-panel" class="open-panel"><i class="icon-library"></i></button>
+
+    <nav class="nav-inner">
+
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/前端">前端</a>
+        </li>
+        
+        
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="/categories/后端">后端</a>
+        </li>
+        
+        
+        
+        <li class="nav-item nav-item-tag">
+            <a id="nav-tag" class="nav-link" href="#">标签</a>
+            <div id="nav-tags" class="nav-tag-wrap">
+                <i class="nav-tag-arrow"></i>
+                
+  <div class="widget-wrap">
+    <h3 class="widget-title">
+        <i class="icon-tag vm"></i>
+        <span class="vm">标签</span>
+    </h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/">String</a></li></ul>
+    </div>
+  </div>
+
+
+            </div>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/archives">归档</a>
+        </li>
+        
+        
+        
+
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://qiyankai.github.io"></form>
+
+        
+        
+
+        
+        <div class="author-meta">
+            
+            <div class="author-avatar">
+                <a href="/">
+                    <img src="/images/1.jpg" title="Sanonz">
+                </a>
+            </div>
+            
+            <div class="author-name">Kai</div>
+            <div class="author-work">Web Developer &amp; Designer</div>
+            <div class="author-location">
+                <i class="icon-location vm"></i>
+                <span class="vm">北京, 中国</span>
+            </div>
+            
+            <div class="author-thread-wrap">
+                <div class="author-threads clearfix">
+                    
+                    <a class="thread-item" href="https://github.com/qiyankai" target="_blank"><i class="icon-github"></i></a>
+                    
+                    
+                    <a class="thread-item" href="https://github.com/qiyankai" target="_blank"><i class="icon-circle-more"></i></a>
+                    
+                    
+                    <a class="thread-item" href="https://github.com/qiyankai" target="_blank"><i class="icon-twitter"></i></a>
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2017/03/22/类对象/">类对象</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/22/类对象/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-22T03:54:46.000Z" itemprop="datePublished">2017-03-22</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="类成员（static-修饰成员）的特点："><a href="#类成员（static-修饰成员）的特点：" class="headerlink" title="类成员（static 修饰成员）的特点："></a>类成员（static 修饰成员）的特点：</h3><ol>
+<li>随着类被加载进JVM 而同时也初始化和内存中分配空间</li>
+<li>优先于对象存在（对象也是通过new 出来的）</li>
+<li>被该类的所有对象所共享</li>
+<li>直接使用类名调用即可</li>
+</ol>
+<h3 id="访问规则："><a href="#访问规则：" class="headerlink" title="访问规则："></a>访问规则：</h3><ol>
+<li>静态方法：只能访问静态的成员变量/方法     不能访问非静态的成员变量/方法</li>
+<li>非静态方法可以访问非静态成员变量/方法     也可以访问静态的成员变量/方法</li>
+<li>对象可以访问静态成员、但是不推荐、因为底层依然是同类名在调用</li>
+<li>类可以访问静态成员、类不能访问非静态成员（成员变量/方法）</li>
+</ol>
+<p><strong>类成员和实例成员的访问</strong>：类、成员：使用static 修饰的成员变量/方法</p>
+<h3 id="一般在开发中类成员如何使用："><a href="#一般在开发中类成员如何使用：" class="headerlink" title="一般在开发中类成员如何使用："></a>一般在开发中类成员如何使用：</h3><ul>
+<li>一般在开发中工具类的工具方法都使用static 修饰,如此的好处–&gt; 直接使用（工具类名，方法名）</li>
+<li>比如说，工具类：java.util.Array中的方法都是用Static修饰</li>
+</ul>
+<h3 id="变量的分类和初始值："><a href="#变量的分类和初始值：" class="headerlink" title="变量的分类和初始值："></a>变量的分类和初始值：</h3><p>变量因定义的位置不同，分为: 成员变量和局部变量<br></p>
+<ul>
+<li>成员变量：直接定义在类中的花括号中的变量，有称为字段。也有人称为属性（尽量说字段），有些人说成员变量不对。</li>
+<li>局部变量：除了成员变量，就是局部变量<pre><code>&gt; 1. 直接定义在方法中的变量
+&gt; 2. 方法形式参数
+&gt; 3. 代码块中（{}）变量
+</code></pre></li>
+</ul>
+<h3 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h3><ol>
+<li>成员变量都是有初始化值</li>
+<li>局部变量没有初始化的值</li>
+<li>使用局部变量，必须先赋值，并且变量都有默认值</li>
+</ol>
+<p><strong>特殊</strong>：在Java中，只有final修饰符可以修饰局部变量，其他不能修饰局部变量</p>
+<p>类型                    初始值<br>byte、short、int        0<br>long                0<br>char<br>double                0.0<br>float                0.0f<br>boolean                false<br>引用类型                null</p>
+<h3 id="变量的作用域和生命周期"><a href="#变量的作用域和生命周期" class="headerlink" title="变量的作用域和生命周期"></a>变量的作用域和生命周期</h3><hr>
+<p>当一个变量被定义的时候，他的作用域就被确定了<br></p>
+<ul>
+<li>成员变量：在整个类中有效</li>
+<li>局部变量：只在当前定义的{}中有效</li>
+</ul>
+<p>变量的类型    变量存在的地方    生命周期开始    生命周期结束<br>类变量        类里    static修饰    字节码加载    字节码被卸载<br>实例变量        类里无static修饰    new对象开始    对象<br>局部变量        方法里，形参        方法调用开始    方法调用完结束</p>
+<h3 id="局部变量的初始化和JVM的运行机制"><a href="#局部变量的初始化和JVM的运行机制" class="headerlink" title="局部变量的初始化和JVM的运行机制"></a>局部变量的初始化和JVM的运行机制</h3><hr>
+<p>局部变量定义之后，必须显示初始化后才能使用，因为系统不会因为局部变量执行初始化操作，也就是定义局部变量后，系统并未为这个变量分配内存空间  </p>
+<p>直到程序为这个变量赋值时，系统才会为局部变量分配内存，并将初始值保存到该内存中。</p>
+<blockquote>
+<p>注意：局部变量不属于任何类或视力，因此它总是保存在其所在方法的栈内存中</p>
+<ol>
+<li>基本数据类型局部变量：直接把这个变量的值保存到该变量所对应的内存中</li>
+<li>引用数据类型局部变量：这个变量的内存中存的是对中唯一的一块内存空间地址值。通过该地址引用到该变量实际引用堆里的对象。</li>
+</ol>
+</blockquote>
+<p><strong>特别注意</strong>：栈内存中的变量无需系统垃圾回收。其往往随方法或代码块的运行结束而结束，栈内存运行速度远快与堆内存  </p>
+
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2017/03/22/枚举/">枚举</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/22/枚举/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-22T03:53:46.000Z" itemprop="datePublished">2017-03-22</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>枚举：能列举出所有情况、使用枚举，枚举类使用enum 修饰</p>
+<h3 id="枚举注意事项："><a href="#枚举注意事项：" class="headerlink" title="枚举注意事项："></a>枚举注意事项：</h3><ul>
+<li>1、所有的枚举类继承自java.lang.Enum</li>
+<li>2、枚举类中的所有类成员均被public static final   每一个成员其实都是一个被枚举实例出来的对象</li>
+</ul>
+<pre>
+public class EnumDemo {
+    public static void main(String[] args) {
+        Weekday i = Weekday.SUN;
+        //name():获取名字
+        System.out.println(i);
+        //ordinal():代表位置，从0 开始
+        System.out.println(i.ordinal());
+        //values():获取枚举类中所有对象
+        Weekday[] weekday = i.values();
+    }
+}
+//枚举类型
+enum Weekday {SUN,MON,TUS,WED,THU,FRI,SAT}
+</pre>
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2017/03/21/try-catch/">try-catch</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/21/try-catch/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-21T03:54:46.000Z" itemprop="datePublished">2017-03-21</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="什么是异常机制"><a href="#什么是异常机制" class="headerlink" title="什么是异常机制"></a>什么是异常机制</h3><p>什么是异常，比如说：<br>医院–》 医生–》 身体某些部位异常–》 该部位和正常相比不同<br>将受到影响</p>
+<h3 id="异常："><a href="#异常：" class="headerlink" title="异常："></a>异常：</h3><p>并不是语法出错，语法错误，无法编译，不会产生字节码文件，不能运行</p>
+<h3 id="为什么学习异常机制？"><a href="#为什么学习异常机制？" class="headerlink" title="为什么学习异常机制？"></a>为什么学习异常机制？</h3><ul>
+<li>异常处理是衡量一门语言是否成熟的标准之一</li>
+<li>java、c++，c# 等都有异常处理</li>
+<li>异常处理都可以让程序有更好的容错性，是代码更加健壮</li>
+<li>if-else 其实是一种异常<h3 id="没有异常存在缺点："><a href="#没有异常存在缺点：" class="headerlink" title="没有异常存在缺点："></a>没有异常存在缺点：</h3></li>
+<li>使用方法的返回值来表示异常情况有限，无法琼剧所有的情况</li>
+<li>异常流程和正常流程混合在一起，增大程序的复杂性，可读性也不好</li>
+<li>随着系统规模的不断扩大，程序的可维护性极低<h3 id="针对上述的没有异常机制的缺点，我们提出"><a href="#针对上述的没有异常机制的缺点，我们提出" class="headerlink" title="针对上述的没有异常机制的缺点，我们提出"></a>针对上述的没有异常机制的缺点，我们提出</h3></li>
+</ul>
+<ol>
+<li>把异不同类型的异常情况描述成不同类</li>
+<li>分离异常流程代码和正常代码不一样<h3 id="异常转译："><a href="#异常转译：" class="headerlink" title="异常转译："></a>异常转译：</h3>当位于上层的子系统不需要关心底层的异常细节时，常见的做法就是捕获异常，把它转换为新的不同类型的异常，再抛出新的异常<h3 id="异常链："><a href="#异常链：" class="headerlink" title="异常链："></a>异常链：</h3>把原始的异常包装为新的异常类，从而形成多个异常的有序排列，有助于查找异常的根本原因</li>
+</ol>
+<h5 id="上班车坏了迟到例子"><a href="#上班车坏了迟到例子" class="headerlink" title="上班车坏了迟到例子"></a>上班车坏了迟到例子</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">class CarWrongException extends Exception&#123;</span><br><span class="line">    private static final long serialVersionUID = 1;</span><br><span class="line"></span><br><span class="line">    public CarWrongException(String message) &#123;</span><br><span class="line">        super(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//上班迟到的异常</span><br><span class="line">class WorkWrongException extends Exception&#123;</span><br><span class="line">    private static final long serialVersionUID = 1;</span><br><span class="line"></span><br><span class="line">    public WorkWrongException(String message) &#123;</span><br><span class="line">        super(message);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public WorkWrongException(String message, Throwable cause) &#123;</span><br><span class="line">        super(message, cause);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Car &#123;</span><br><span class="line">    //public static final int NO_OK = 0;</span><br><span class="line">    //public static final int OK = 1;</span><br><span class="line"></span><br><span class="line">    public void run() throws CarWrongException &#123;</span><br><span class="line">        int a = 2;</span><br><span class="line">        if (a == 2) &#123;</span><br><span class="line">            //System.out.println(&quot;爆胎了&quot;);</span><br><span class="line">            throw new CarWrongException(&quot;爆胎了&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            System.out.println(&quot;开车上班&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Worker &#123;</span><br><span class="line">    private Car car = null;</span><br><span class="line">    public static final int LATE = 0;</span><br><span class="line">    public static final int IN_TIME = 1;</span><br><span class="line"></span><br><span class="line">    public Worker(Car car) &#123;</span><br><span class="line">        this.car = car;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void gotoWork() throws WorkWrongException &#123;</span><br><span class="line">        try&#123;</span><br><span class="line">            car.run();//正常开车上班</span><br><span class="line">            System.out.println(&quot;好开心哦&quot;);</span><br><span class="line">        &#125;catch (CarWrongException e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            //车坏了，出现异常</span><br><span class="line">            this.walk();</span><br><span class="line">            throw new WorkWrongException(&quot;迟到原因&quot;+e.getMessage(),e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    private void walk() &#123;</span><br><span class="line">        System.out.println(&quot;走路上班&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class WhyDemo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Car car = new Car();</span><br><span class="line">        Worker worker = new Worker(car);</span><br><span class="line">        try &#123;</span><br><span class="line">            worker.gotoWork();</span><br><span class="line">            System.out.println(&quot;老板发奖金&quot;);</span><br><span class="line">        &#125;catch (WorkWrongException e)&#123;</span><br><span class="line">            System.out.println(&quot;老板揍我&quot;);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2017/03/20/内部类/">内部类</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/20/内部类/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-20T03:54:46.000Z" itemprop="datePublished">2017-03-20</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><p>内部类会生成字节码文件，此时文件名称冠以外部类的名称$ ：外部类$ 内部类  </p>
+<p><strong>注意:</strong> 在内部实例中、不允许使用static修饰成员变量，（除final修饰以外）成员方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public class MemberInnerClass &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //外部类的实例对象</span><br><span class="line">        OuterDemo01 outerDemo01 = new OuterDemo01();</span><br><span class="line">        outerDemo01.outPrint();</span><br><span class="line">        //创建内部类对象   方式一</span><br><span class="line">        OuterDemo01.InnerDemo01 in = outerDemo01.new InnerDemo01();</span><br><span class="line">        in.innerPrint();</span><br><span class="line">        //创建内部类对象   方式二</span><br><span class="line">        OuterDemo01.InnerDemo01 inner = new OuterDemo01().new InnerDemo01();</span><br><span class="line">        inner.innerPrint();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class OuterDemo01 &#123;</span><br><span class="line">    //声明私有的成员变量</span><br><span class="line">    private int age;</span><br><span class="line">    //定义一个实力内部类（成员内部类）</span><br><span class="line">    class InnerDemo01 &#123;</span><br><span class="line">        //定义一个内部类的私有变量</span><br><span class="line">        private int age = 10;</span><br><span class="line">        //定义一个内部类方法</span><br><span class="line">        public void innerPrint() &#123;</span><br><span class="line">            int age = 20;</span><br><span class="line">            System.out.println(&quot;访问内部类中的局部变量阿age= &quot; + age);</span><br><span class="line">            System.out.println(&quot;内部类的成员变量age= &quot; + this.age);</span><br><span class="line">            System.out.println(&quot;外类的成员变量age= &quot;+OuterDemo01.this.age);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //声明一个外部类成员方法</span><br><span class="line">    public void outPrint() &#123;</span><br><span class="line">        System.out.println(&quot;外部类&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-局部内部类"><a href="#1-局部内部类" class="headerlink" title="1.局部内部类"></a>1.局部内部类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class LocalInnerClass &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        OuterDemo04 outerDemo04 = new OuterDemo04();</span><br><span class="line">        outerDemo04.test(998);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class OuterDemo04 &#123;</span><br><span class="line">    //声明一个成员变量</span><br><span class="line">    int age = 10;</span><br><span class="line"></span><br><span class="line">    //声明一个成员方法</span><br><span class="line">    public void test(int a) &#123;</span><br><span class="line">        class InnerDemo04 &#123;//局部内部类</span><br><span class="line">            //内部类中的方法</span><br><span class="line">            public void innerPrint() &#123;</span><br><span class="line">                System.out.println(&quot;局部内部类&quot;+a);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        InnerDemo04 innerDemo04 = new InnerDemo04();</span><br><span class="line">        innerDemo04.innerPrint();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-匿名内部类"><a href="#2-匿名内部类" class="headerlink" title="2.匿名内部类"></a>2.匿名内部类</h3><p>new 构造器([参数列表])|接口名称{<br>   类体<br>}<br><strong>注意: </strong> 匿名内部类只能继承一个类或者实现一个接口,此时匿名内部类默认继承<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public class AnonynityDemo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        AnonynityDemo05 demo05 = new AnonynityDemo05();</span><br><span class="line">        Ffuck fuck = new Ffuck();</span><br><span class="line">        demo05.test(fuck);</span><br><span class="line"></span><br><span class="line">        //匿名内部类</span><br><span class="line">        demo05.test(new Fuck()&#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void printFuck() &#123;</span><br><span class="line">                System.out.println(&quot;MMP&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    void test(Fuck f)&#123;</span><br><span class="line">        f.printFuck();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">interface Fuck&#123;</span><br><span class="line">    void printFuck();</span><br><span class="line">&#125;</span><br><span class="line">class Ffuck implements Fuck&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void printFuck() &#123;</span><br><span class="line">        System.out.println(&quot;fuck&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-私有内部类"><a href="#3-私有内部类" class="headerlink" title="3.私有内部类"></a>3.私有内部类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">public class PrivateInnerClass &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        OuterDemo02 out = new OuterDemo02();</span><br><span class="line">        //无法访问外部类的</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class OuterDemo02 &#123;</span><br><span class="line">    //声明一个私有成员变量</span><br><span class="line">    private int age = 10;</span><br><span class="line"></span><br><span class="line">    private class InnerDemo02 &#123;</span><br><span class="line">        //提供私有的成员变量</span><br><span class="line">        private int age = 20;</span><br><span class="line"></span><br><span class="line">        //提供一个公共的访问方法</span><br><span class="line">        public void innerPrint() &#123;</span><br><span class="line">            System.out.println(&quot;内部类的成员变量&quot; + age);</span><br><span class="line">            System.out.println(&quot;外部类的成员变量&quot; + OuterDemo02.this.age);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //提供一个公共成员方法</span><br><span class="line">    public void outerPrint() &#123;</span><br><span class="line">        //test();</span><br><span class="line">        //创建一个私有内部类对象</span><br><span class="line">        InnerDemo02 innerDemo02 = new InnerDemo02();</span><br><span class="line">        innerDemo02.innerPrint();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //创建一个私有的成员方法</span><br><span class="line">    private void test() &#123;</span><br><span class="line">        System.out.println(&quot;test&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-静态内部类"><a href="#4-静态内部类" class="headerlink" title="4.静态内部类"></a>4.静态内部类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">public class StaticInnerClass &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //创建静态的内部类的实例对象</span><br><span class="line">        //访问静态类的静态方法    调用方式一</span><br><span class="line">        OuterDemo03.InnerDemo03 inner = new OuterDemo03.InnerDemo03();</span><br><span class="line">        inner.innerPrint();</span><br><span class="line">        /*</span><br><span class="line">        * 访问静态方法的方式：</span><br><span class="line">        *       1、类名.静态方法</span><br><span class="line">        *       2、创建对象  对象.静态方法()</span><br><span class="line">        * */</span><br><span class="line">        //访问静态类的静态方法    调用方式二</span><br><span class="line">        OuterDemo03.InnerDemo03.innerPrint();</span><br><span class="line">        //调用内部类的成员方法</span><br><span class="line">        inner.test();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class OuterDemo03 &#123;</span><br><span class="line">    //声明一个静态的成员变量</span><br><span class="line">    private static int age = 20;</span><br><span class="line">    //声明一个非静态的成员变量</span><br><span class="line">    private String name = &quot;达内&quot;;</span><br><span class="line"></span><br><span class="line">    //静态的内部类</span><br><span class="line">    static class InnerDemo03 &#123;</span><br><span class="line">        //声明一个静态的变量</span><br><span class="line">        private static int age = 10;</span><br><span class="line">        //声明一个非静态的成员变量</span><br><span class="line">        private String name = &quot;很好&quot;;</span><br><span class="line"></span><br><span class="line">        //声明一个静态的方法</span><br><span class="line">        public static void innerPrint() &#123;</span><br><span class="line">            System.out.println(age);</span><br><span class="line">            System.out.println(OuterDemo03.age);</span><br><span class="line">        &#125;</span><br><span class="line">        //声明一个非静态的成员方法</span><br><span class="line">        public void test()&#123;</span><br><span class="line">            System.out.println(name);</span><br><span class="line">            OuterDemo03 outerDemo03 = new OuterDemo03();</span><br><span class="line">            System.out.println(outerDemo03.name);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>系统会创建一个继承自Bird类的匿名对象,该对象转型为Bird类型的引用，对于匿名内部类的使用它存在缺陷，仅能被使用一次，创建匿名内部类，什么时候使用，什么时候会创建一个该类的实例，会立即消失</p>
+</blockquote>
+<h3 id="匿名内部类使用注意事项："><a href="#匿名内部类使用注意事项：" class="headerlink" title="匿名内部类使用注意事项："></a>匿名内部类使用注意事项：</h3><ol>
+<li>使用匿名内部类时，我们必须继承一个类或者实现一个接口，但是两者不可兼得，匿名内部类必须继承或者实现一个接口</li>
+<li>匿名内部类是不能定义构造函数的</li>
+<li>匿名内部类中不能存在任何静态变量和静态方法</li>
+<li>匿名内部类为局部内部类，所以局部内部了哦的所有限制对匿名内部类有效</li>
+<li>匿名内部类不能是抽象的，他必须要实现继承或者实现接口的所有抽象方法</li>
+</ol>
+
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2017/03/15/String/">String</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/15/String/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-15T03:54:46.000Z" itemprop="datePublished">2017-03-15</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="什么是字符串，一串字符"><a href="#什么是字符串，一串字符" class="headerlink" title="什么是字符串，一串字符"></a>什么是字符串，一串字符</h3><p>本质：char[] 数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String str = &quot;ABC&quot;;</span><br><span class="line">char[] c = &#123;&quot;A&quot;,&quot;B&quot;,&quot;C0&quot;&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="字符串的分类"><a href="#字符串的分类" class="headerlink" title="字符串的分类"></a>字符串的分类</h3><p>1、不可变的字符串：String 类<br>2、可变的字符串：StringBuilder 、 StringBuffer 类</p>
+<h3 id="不可变的字符串："><a href="#不可变的字符串：" class="headerlink" title="不可变的字符串："></a>不可变的字符串：</h3><p>一个String 对象只能表示一个固定的字符串，<br>若内容改变，则对象也改变</p>
+<h3 id="字符串常见问题："><a href="#字符串常见问题：" class="headerlink" title="字符串常见问题："></a>字符串常见问题：</h3><ul>
+<li>1、单独使用”” 引号创建的字符串都是直接量，编译器就已经确定储存到常量池中</li>
+<li>2、使用new String() 创建的对象会存到堆内存中，是运行期才会有</li>
+<li>3、使用只包含直接量的字符串链接符，如”aa”+”bb” 创建的也是直接量编译期就能确定，已经确定存储到常量池中</li>
+<li>4、使用String 直接量（无final 修饰）的字符串表达式如”aa”+temp 创建的对象试运行期才创建得存储在堆中的0</li>
+</ul>
+<h3 id="String中的常用方法"><a href="#String中的常用方法" class="headerlink" title="String中的常用方法:"></a>String中的常用方法:</h3><ul>
+<li>toUperCase</li>
+<li>toLowerCase</li>
+<li>starts</li>
+<li>toCharArray</li>
+<li>valueOf</li>
+<li>subString</li>
+</ul>
+
+        
+    </section>
+</article>
+
+
+
+
+<nav class="page-nav">
+    <a class="extend prev" rel="prev" href="/categories/后端/page/2/">&laquo; 上一页</a><a class="page-number" href="/categories/后端/">1</a><a class="page-number" href="/categories/后端/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/categories/后端/page/4/">4</a><a class="extend next" rel="next" href="/categories/后端/page/4/">下一页 &raquo;</a>
+</nav>
+
+
+</div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+</footer>
+
+<script type="text/javascript" src="//s13.cnzz.com/z_stat.php?id=1272981253&amp;web_id=1272981253"></script>
+
+
+    </div>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    
+    <script type="text/javascript">
+        $(function() {
+            var nodes = {
+                nav: $('#nav'),
+                aside: $('#aside'),
+                navTags: $('#nav-tags')
+            };
+
+            $('#open-panel, #aside-mask').on('click', function() {
+                nodes.aside.toggleClass('panel-show');
+            });
+            $('#nav-tag').on('click', function(event) {
+                event.preventDefault();console.log(nodes.navTags.attr('class'))
+                nodes.navTags.toggleClass('tag-show');console.log(nodes.navTags.attr('class'))
+            })/*.hover(function() {
+                nodes.navTags.addClass('tag-show');
+            }, function() {
+                nodes.navTags.removeClass('tag-show');
+            });*/
+
+            
+        });
+    </script>
+
+</body>
+</html>
