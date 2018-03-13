@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>HTML | 祁彦凯</title>
+    <meta name="author" content="祁彦凯" />
+    <meta name="version" content="1.0.0" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="HTML
+1.什么是html是超文本标记语言，它规定了自己的语法规则，用来表示比“文本”更丰富的意义，比如图片，表格，链接等。浏览器软件知道HTML语言的语法，目前互联网上的绝大部分网页都是使用HTML编写的。
+2.html的结构文件名：xxx.html或者xxx.htm，但是通常用xxx.html。123456789&amp;lt;!DOCTYPE HTML&amp;gt;&amp;lt;html&amp;gt;	  &amp;lt;head&amp;gt;	  &amp;lt;/head&amp;gt;	  &amp;lt;body&amp;gt;	  &amp;lt;/bod" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <meta name="baidu-site-verification" content="F0CXvmUgA9" />
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <div class="app">
+        <header class="header clearfix">
+    <div id="nav" class="nav">
+    <button id="open-panel" class="open-panel"><i class="icon-library"></i></button>
+
+    <nav class="nav-inner">
+
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/前端">前端</a>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/后端">后端</a>
+        </li>
+        
+        
+        
+        <li class="nav-item nav-item-tag">
+            <a id="nav-tag" class="nav-link" href="#">标签</a>
+            <div id="nav-tags" class="nav-tag-wrap">
+                <i class="nav-tag-arrow"></i>
+                
+  <div class="widget-wrap">
+    <h3 class="widget-title">
+        <i class="icon-tag vm"></i>
+        <span class="vm">标签</span>
+    </h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+            </div>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/archives">归档</a>
+        </li>
+        
+        
+        
+
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://qiyankai.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-什么是html"><span class="toc-number">1.</span> <span class="toc-text">1.什么是html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-html的结构"><span class="toc-number">2.</span> <span class="toc-text">2.html的结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-HTML语法"><span class="toc-number">3.</span> <span class="toc-text">3.HTML语法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#如何在网页中做一个空格或者做一个换行"><span class="toc-number">3.0.1.</span> <span class="toc-text">如何在网页中做一个空格或者做一个换行?</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HTML-和-XML的区别"><span class="toc-number">3.0.2.</span> <span class="toc-text">HTML 和 XML的区别:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-HTML标签"><span class="toc-number">4.</span> <span class="toc-text">4.HTML标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表单标签"><span class="toc-number">5.</span> <span class="toc-text">表单标签</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#GET和POST提交的区别-主要区别在于请求参数传输过程的不相同"><span class="toc-number">5.0.1.</span> <span class="toc-text">GET和POST提交的区别: 主要区别在于请求参数传输过程的不相同</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#div、span、p标签"><span class="toc-number">6.</span> <span class="toc-text">div、span、p标签</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content"><article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            HTML
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/05/20/Html/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-05-20T03:53:46.000Z" itemprop="datePublished">2017-05-20</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/HTML/">HTML</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>HTML</p>
+<h3 id="1-什么是html"><a href="#1-什么是html" class="headerlink" title="1.什么是html"></a>1.什么是html</h3><p>是超文本标记语言，它规定了自己的语法规则，用来表示比“文本”更丰富的意义，比如图片，表格，链接等。浏览器软件知道HTML语言的语法，目前互联网上的绝大部分网页都是使用HTML编写的。</p>
+<h3 id="2-html的结构"><a href="#2-html的结构" class="headerlink" title="2.html的结构"></a>2.html的结构</h3><p>文件名：xxx.html或者xxx.htm，但是通常用xxx.html。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	  &lt;head&gt;</span><br><span class="line"></span><br><span class="line">	  &lt;/head&gt;</span><br><span class="line">	  &lt;body&gt;</span><br><span class="line"></span><br><span class="line">	  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<pre><code>&lt;!DOCTYPE HTML&gt;：html5的文档声明 
+&lt;html&gt;：所有的html都要有这个标签，表示文档的开始和结束
+&lt;head&gt;：用来存放html中的基本属性信息，比如标题，编码等
+&lt;body&gt;：用来存放html中的页面数据，在页面中是可以显示的
+
+&lt;title&gt;：指定网页的标题
+&lt;meta charset=UTF-8/&gt;：指定浏览器的解码格式
+</code></pre><a id="more"></a>
+<h3 id="3-HTML语法"><a href="#3-HTML语法" class="headerlink" title="3.HTML语法"></a>3.HTML语法</h3><p>HTML是一门标记语言, 标记也叫做元素/标签, 标签分为开始标签和结束标签, 如果标签内没有内容要修饰, 可以合并一个自闭标签.<br>如:<code>&lt;meta/&gt; &lt;br/&gt; &lt;hr/&gt; &lt;input/&gt; &lt;img/&gt;</code>等等</p>
+<p><strong>注释</strong>: <code>&lt;!--注释内容 --&gt;</code>  </p>
+<h5 id="如何在网页中做一个空格或者做一个换行"><a href="#如何在网页中做一个空格或者做一个换行" class="headerlink" title="如何在网页中做一个空格或者做一个换行?"></a>如何在网页中做一个空格或者做一个换行?</h5><pre><code>由于在网页中多个连续的空白字符会被当成一个空格来显示, 所以
+如果要做一个空格, 可以用转义字符 &amp;nbsp;来代替;
+如果要做一个换行, 可以用&lt;br/&gt;标签来代替;
+</code></pre><h5 id="HTML-和-XML的区别"><a href="#HTML-和-XML的区别" class="headerlink" title="HTML 和 XML的区别:"></a>HTML 和 XML的区别:</h5><pre><code>* xml对语法的要求非常严格, 如区分大小写, 标签不能交叉嵌套,标签一定要关闭等
+* HTML对语法的要求非常不严格. 
+    如: 标签名可以大小写混用,  标签即使没有结束或者交叉嵌套, 可能也会被浏览器正常解析(最好按照规范来书写!!)
+* xml中允许用户自己定义标签
+* HTML中的标签都是预定义好的, 不允许用户自己定义
+</code></pre><h3 id="4-HTML标签"><a href="#4-HTML标签" class="headerlink" title="4.HTML标签"></a>4.HTML标签</h3><p>通过不同的标签，HTML文档可以包含不同的内容。比如文本，链接，图片，列表，表格，表单等。<br>可以通过W3Cschool来学习标签，W3Cschool是一个专业的编程入门学习及技术文档查询应用</p>
+<ol>
+<li><p>文本标签<font></font><br>文本标签font，有三个属性：<br> size：大小，范围为1-7<br> face：字体<br> color：颜色，有三种形式，英文、16色、RGB（RGB颜色部分浏览器不支持）</p>
+<p> HTML文档内容如下</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;meta charset=UTF-8/&gt;</span><br><span class="line">		&lt;title&gt;我是第一个网页&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">		&lt;font size=&quot;1&quot; face=&quot;楷体&quot; color=&quot;red&quot;&gt;我是font标签&lt;/font&gt;&lt;br/&gt;</span><br><span class="line">		&lt;font size=&quot;5&quot; face=&quot;楷体&quot; color=&quot;#ff0000&quot;&gt;我是font标签&lt;/font&gt;&lt;br/&gt;</span><br><span class="line">		&lt;font size=&quot;7&quot; face=&quot;楷体&quot; color=&quot;rgb(255,0,0)&quot;&gt;我是font标签&lt;/font&gt;&lt;br/&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>标题标签<code>&lt;h1&gt;--&lt;h6&gt;</code><br> 标题标签，从h1-h6依次变小，只有一个属性</p>
+<pre><code>align：文本的位置,left居左（默认），center居中，right居右
+</code></pre><p> HTML文档内容如下</p>
+<pre><code>&lt;h1 align=&quot;left&quot;&gt;我是标题标签&lt;/h1&gt;
+&lt;h2 align=&quot;center&quot;&gt;我是标题标签&lt;/h2&gt;
+&lt;h3 align=&quot;right&quot;&gt;我是标题标签&lt;/h3&gt;
+&lt;h4&gt;我是标题标签&lt;/h4&gt;
+&lt;h5&gt;我是标题标签&lt;/h5&gt;
+&lt;h6&gt;我是标题标签&lt;/h6&gt;
+</code></pre></li>
+<li><p>列表标签<code>&lt;ul&gt;/&lt;li&gt;</code><br> 列表标签:ul：定义一个无序标签，无序指列表前无编号，属性有：</p>
+<pre><code>type：表示列表前面的形状，取值有disc（默认）：实心圆，circle：空心圆，square：方块
+li：定义列表中的项
+</code></pre><p> HTML文档内容如下</p>
+<pre><code>&lt;ul type=&quot;disc&quot;&gt;
+    &lt;!-- --&gt;
+    &lt;li&gt;中国&lt;/li&gt;
+    &lt;li&gt;美国&lt;/li&gt;
+    &lt;li&gt;英国&lt;/li&gt;
+    &lt;li&gt;小日本&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre></li>
+<li><p>图片标签<code>&lt;img …/&gt;</code><br> 图像标签img：属性</p>
+<pre><code>src:图片网址或者路径
+width:宽度，可以是像素，也可以是百分比
+hight：高度
+alt：图像的代替文本
+</code></pre><p> border：边框的宽度 px</p>
+</li>
+<li><p>超链接标签<code>&lt;a …&gt;&lt;/a&gt;</code><br> 超链接标签a,属性</p>
+<pre><code>    href:用来指定跳转网址
+    title：鼠标移到改标签时所显示内容
+    target：在何处打开目标url，常用有_self:当前页面打开，_blank:新页面打开，_top:回到顶部
+如果需要回到指定位置，需要在指定位置加入&lt;a name=&quot;place&quot;/&gt;
+</code></pre><p> HTML文档内容如下</p>
+<pre><code>&lt;a href=&quot;http://www.tmooc.cn&quot; title=&quot;一分钟帮你搞定java&quot; target=&quot;_blank&quot;&gt;学习就上tmooc&lt;/a&gt;
+&lt;br/&gt;&lt;br/&gt;
+&lt;a href=&quot;&quot; target=&quot;_top&quot;&gt;回到顶部&lt;/a&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;a href=&quot;#place&quot;&gt;回到指定位置&lt;/a&gt;
+</code></pre></li>
+<li><p>表格标签<code>&lt;table&gt;/&lt;tr&gt;/&lt;td&gt;</code><br> table – 用来定义一个表格<br> tr – 用来定义表格中的行<br> td – 用来定义表格中的单元格<br> th – 用来定义表头</p>
+<p> table属性:</p>
+<pre><code>border：边框
+cellspacing：单元格之间的距离
+cellpadding：边框和内容之间的距离
+bgcolor：背景颜色
+width：定义表格的宽度
+align：定义表格的位置
+</code></pre><p> tr属性:</p>
+<pre><code>bgcolor：背景颜色
+</code></pre><p> align：定义表格的位置<br> td属性:</p>
+<pre><code>bgcolor：背景颜色
+</code></pre><p> align：定义表格的位置</p>
+<pre><code>width：定义单元格的宽度
+</code></pre><p> height：定义单元格的高度<br> colspan：定义单元格横跨的列数<br> rowspan：定义单元格竖跨的行数</p>
+<p> HTML文档规则表格内容如下</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;h3 align=&quot;center&quot;&gt;我是一个表格&lt;/h3&gt;</span><br><span class="line">&lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;10&quot; bgcolor=&quot;pink&quot; width=&quot;600px&quot; align=&quot;center&quot;&gt;</span><br><span class="line">			&lt;!--&lt;caption&gt;我是表格&lt;/caption&gt;--&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;th&gt;表头1&lt;/th&gt;</span><br><span class="line">				&lt;th&gt;表头2&lt;/th&gt;</span><br><span class="line">				&lt;th&gt;表头3&lt;/th&gt;</span><br><span class="line">				&lt;th&gt;表头4&lt;/th&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;11&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;12&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;13&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;14&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;21&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;22&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;23&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;24&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;31&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;32&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;33&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;34&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;41&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;42&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;43&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;44&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">		&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+<p> HTML文档不规则表格内容如下</p>
+<pre><code>&lt;h3 align=&quot;center&quot;&gt;我是一个表格&lt;/h3&gt;
+&lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;10&quot; bgcolor=&quot;pink&quot; width=&quot;600px&quot; align=&quot;center&quot;&gt;
+            &lt;!--&lt;caption&gt;我是表格&lt;/caption&gt;--&gt;
+            &lt;tr&gt;
+                &lt;th&gt;表头1&lt;/th&gt;
+                &lt;th&gt;表头2&lt;/th&gt;
+                &lt;th&gt;表头3&lt;/th&gt;
+                &lt;th&gt;表头4&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td width=&quot;70&quot; height=&quot;50&quot;&gt;11&lt;/td&gt;
+                &lt;td&gt;12&lt;/td&gt;
+                &lt;td bgcolor=&quot;red&quot;&gt;13&lt;/td&gt;
+                &lt;td&gt;14&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td colspan=&quot;3&quot; align=&quot;center&quot;&gt;21&lt;/td&gt;
+                &lt;td&gt;24&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;31&lt;/td&gt;
+                &lt;td&gt;32&lt;/td&gt;
+                &lt;td&gt;33&lt;/td&gt;
+                &lt;td rowspan=&quot;2&quot;&gt;34&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;41&lt;/td&gt;
+                &lt;td&gt;42&lt;/td&gt;
+                &lt;td&gt;43&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+</code></pre></li>
+</ol>
+<h3 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签<form></form></h3><ol>
+<li>浏览器向服务器发送数据的两种方式<ul>
+<li>通过超链接向服务器发送数据<br>  <code>https://www.baidu.com/?user=zhangsan&amp;password=123&amp;like=lanqiu&amp;like=zuqiu</code><br>  其实就是在超链接后面通过?拼接参数将数据带给服务器<br>  参数和参数值之间用等号分隔, 参数可以有多个, 多个参数之间用&amp;分隔, 并且参数的名字可以重复</li>
+<li>通过表单向服务器发送数据<br>  其实里通过表单及表单项标签, 用户可以通过表单项输入数据, 通过提交表单向服务器发送数据.</li>
+</ul>
+</li>
+<li><p>form标签<br> <code>&lt;form action=”http://www.baidu.com” method=”GET”&gt;&lt;/form&gt;</code></p>
+<p> action 必须存在的属性, 用来指定表单提交的目的地地址<br> method 可选属性, 用来指定以何种方式来提交表单, 如果不指定, 默认是GET提交</p>
+<p> HTTP协议中规定了7种提交方式, 其中5种都不常用, 只用GET和POST.<br> 只有使用表单, 并且明确的指定了提交方式为POST时, 才是POST提交, 其他方式都是GET提交</p>
+<h5 id="GET和POST提交的区别-主要区别在于请求参数传输过程的不相同"><a href="#GET和POST提交的区别-主要区别在于请求参数传输过程的不相同" class="headerlink" title="GET和POST提交的区别: 主要区别在于请求参数传输过程的不相同"></a>GET和POST提交的区别: 主要区别在于请求参数传输过程的不相同</h5><pre><code>* GET提交:
+    通过在地址栏拼接参数将数据发送给服务器
+    数据显示在地址栏, 非常不安全
+    通过地址栏发送数据, 数据量不能太大, 不能超过1kb或者4kb
+* POST提交:
+    通过底层的流将数据发送给服务器
+    没有将数据显示在地址栏, 相对更安全
+    没有通过地址栏发送数据, 数据量理论上没有限制
+</code></pre></li>
+<li><p>表单中的项<br> 表单中可以有多个输入项，输入项必须有name属性才可以被提交，如果输入项没有name属性，则表单在提交时会忽略它</p>
+<ul>
+<li><p><code>&lt;input&gt;</code> 输入框<br>  type属性: type属性的值可以有多个, 当type属性的值不同时, input标签的功能效果也不同, 例如:<br>  type=”text”          文本输入框<br>  type=”password”       密码框,通过size属性设置框的宽度<br>  type=”radio”    单选框    多个单选框的name属性值必须一致才可以单选, 并且需要通过value属性指定被提交时的值<br>  type=”checkbox”    复选框(多选框) 需要通过value属性指定被提交时的值<br>  type=”submit”    提交按钮 用来提交表单<br>  type=”reset”    重置按钮, 将表单项重置到初始时的状态<br>  type=”button”    普通按钮<br>  type=”file”    文件上传项, 可以选择文件进行上传<br>  type=”hidden”    隐藏域，一般在信息修改的时候用来隐藏用户id</p>
+<p>  <strong>通用的属性: </strong><br>  readonly=”readonly” 设置表单项为只读, 只能读不能写, 但是可以被提交<br>  disabled=”disabled” 设置表单项为禁用, 不能被提交.</p>
+</li>
+<li><p><code>&lt;textarea&gt;</code> 文本域<br>  <code>&lt;textarea cols=”30” rows=”5”&gt;请输入个人信息…&lt;/textarea&gt;</code><br>  属性:<br>  cols 设置列数, 即输入框的宽度<br>  rows 设置行数, 即输入框的高度</p>
+</li>
+<li><p><code>&lt;select&gt; &lt;option&gt;</code>标签<br>  select 定义一个下拉选框<br>  option 用来定义下拉选框中的选项<br>  select属性:</p>
+<pre><code>name属性 -- name指定该项提交时参数的名字
+size属性 –- 指定可见选项的个数
+multiple –- 指定支持多选
+</code></pre></li>
+</ul>
+</li>
+<li><p>HTML中内容</p>
+ <!--表单标签-->
+<pre><code>&lt;h3 align=&quot;center&quot;&gt;注册表单&lt;/h3&gt;
+&lt;form action=&quot;http://www.baidu.com&quot; method=&quot;post&quot;&gt;
+    &lt;table border=&quot;1&quot; bordercolor=&quot;red&quot; cellspacing=&quot;0&quot; cellpadding=&quot;10&quot; align=&quot;center&quot;&gt;
+        &lt;tr&gt;
+            &lt;td&gt;用户名:&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;密码:&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;password&quot; name=&quot;password&quot;/&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;确认密码:&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;password&quot; name=&quot;password2&quot;/&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;手机:&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;text&quot; value=&quot;+86&quot; readonly=&quot;readonly&quot; size=&quot;3&quot;/&gt;
+                &lt;input type=&quot;text&quot; name=&quot;phone&quot;/&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;昵称:&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;text&quot; name=&quot;nickname&quot;/&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;性别:&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;man&quot;/&gt;男
+                &lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;women&quot;/&gt;女
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;爱好:&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;checkbox&quot; name=&quot;like&quot; value=&quot;lanqiu&quot;/&gt;篮球
+                &lt;input type=&quot;checkbox&quot; name=&quot;like&quot; value=&quot;zuqiu&quot;/&gt;足球
+                &lt;input type=&quot;checkbox&quot; name=&quot;like&quot; value=&quot;taiqiu&quot;/&gt;台球
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;出生地:&lt;/td&gt;
+            &lt;td&gt;
+                &lt;select  name=&quot;city&quot;&gt;
+                    &lt;option value=&quot;beijing&quot;&gt;北京&lt;/option&gt;
+                    &lt;option value=&quot;shanghai&quot;&gt;上海&lt;/option&gt;
+                    &lt;option value=&quot;guangzhou&quot;&gt;广州&lt;/option&gt;
+                    &lt;option value=&quot;shenzhen&quot;&gt;深圳&lt;/option&gt;
+                &lt;/select&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;头像:&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;file&quot; name=&quot;photo&quot;/&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;个人描述:&lt;/td&gt;
+            &lt;td&gt;
+                &lt;textarea cols=&quot;30&quot; rows=&quot;5&quot; name=&quot;description&quot;&gt;&lt;/textarea&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;验证码:&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;text&quot; name=&quot;valistr&quot;/&gt;&lt;img src=&quot;E:\web\html\resouce\vc.jpg&quot;  alt=&quot;验证码&quot; /&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan=&quot;2&quot; align=&quot;center&quot;&gt;
+                &lt;input type=&quot;button&quot; onclick=&quot;alert(&apos;这里是注册须知&apos;)&quot; value=&quot;注册须知&quot;/&gt;
+                &lt;input type=&quot;submit&quot; value=&quot;注册&quot;/&gt;
+                &lt;input type=&quot;reset&quot;/&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/form&gt;
+</code></pre></li>
+</ol>
+<h3 id="div、span、p标签"><a href="#div、span、p标签" class="headerlink" title="div、span、p标签"></a>div、span、p标签</h3><p>这三个标签都可以看作是一个容器, 可以用来包裹其他的 html内容, 被包裹起来的内容形成了一个组, 可以通过css样式对这一组的内容统一设置样式.</p>
+<ul>
+<li>div: 独占一行，标签可以把文档分割为独立的、不同的部分。</li>
+<li>span：并非独占一行，多个span会并排排列，直到一行排满才会换行，标签被用来组合文档中的行内元素。</li>
+<li>p：独占一行，但是元素会自动在其前后创建一些空白，是段落标签。</li>
+</ul>
+<p>元素的类型:</p>
+<ul>
+<li>块级元素: 默认情况下独占一行的元素, 如: div p h1~h6 br hr</li>
+<li>行内元素: 默认情况下, 多个行内元素可以处在同一行。如：span input font…</li>
+</ul>
+
+        
+    </section>
+</article>
+
+
+
+<div class="comments">
+    <div id="disqus_thread">
+        <p class="comment-tips">国内查看评论需要代理~</p>
+    </div>
+    <script>
+    window.disqus_config = function () {
+        this.language = 'zh';
+        this.page.url = 'https://qiyankai.github.io/2017/05/20/Html/';
+        this.page.title = 'HTML';
+        this.page.identifier = '2017/05/20/Html/';
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://qiyankai.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+</footer>
+
+<script type="text/javascript" src="//s13.cnzz.com/z_stat.php?id=1272981253&amp;web_id=1272981253"></script>
+
+
+    </div>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+    
+    <script type="text/javascript">
+        $(function() {
+            var nodes = {
+                nav: $('#nav'),
+                aside: $('#aside'),
+                navTags: $('#nav-tags')
+            };
+
+            $('#open-panel, #aside-mask').on('click', function() {
+                nodes.aside.toggleClass('panel-show');
+            });
+            $('#nav-tag').on('click', function(event) {
+                event.preventDefault();console.log(nodes.navTags.attr('class'))
+                nodes.navTags.toggleClass('tag-show');console.log(nodes.navTags.attr('class'))
+            })/*.hover(function() {
+                nodes.navTags.addClass('tag-show');
+            }, function() {
+                nodes.navTags.removeClass('tag-show');
+            });*/
+
+            
+            $(document.body).scrollspy({target: '#aside-inner'});
+            
+        });
+    </script>
+
+</body>
+</html>

@@ -7,7 +7,7 @@
 
     
 
-    <title>归档: 2018/3 | 祁彦凯</title>
+    <title>祁彦凯</title>
     <meta name="author" content="祁彦凯" />
     <meta name="version" content="1.0.0" />
     <meta name="keywords" content="" />
@@ -32,7 +32,7 @@
 
         
         
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link" href="/">首页</a>
         </li>
         
@@ -71,7 +71,7 @@
         
         
         
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="/archives">归档</a>
         </li>
         
@@ -125,36 +125,58 @@
 </header>
 
         <div id="content" class="content">
-
+    <article class="article" itemscope itemprop="blogPost">
     
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2017/03/13/Date/">Date</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/13/Date/">
     
+    <i class="icon-calendar"></i>
     
-    
-    <section class="archives-wrap">
-    <div class="archive-year-wrap">
-    <a href="/archives/2018" class="archive-year">2018</a>
-    </div>
-    <ol class="archives">
-    
-
-    <li class="archive-section-item">
-        <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <a href="/2018/03/13/hello-world/">Hello World</a>
-            (<a class="article-date" href="/2018/03/13/hello-world/">
-    
-    <time datetime="2018-03-13T09:21:37.597Z" itemprop="datePublished">3/13</time>
+    <time datetime="2017-03-13T03:54:46.000Z" itemprop="datePublished">2017-03-13</time>
 </a>
-)
-        </header>
-    </div>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>DateFormat：可以完成日期的初始化操作<br>格式化（format）:  </p>
+<ol>
+<li>Date 类型对象—》String类型</li>
+<li>Stringformat（parse）：String 类型时间—》Date 类型  </li>
+</ol>
+<h5 id="Stringformat"><a href="#Stringformat" class="headerlink" title="Stringformat"></a>Stringformat</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Date &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //创建Date 对象</span><br><span class="line">        java.util.Date date = new java.util.Date();</span><br><span class="line">        long time = System.currentTimeMillis();</span><br><span class="line">        date = new java.util.Date(time);</span><br><span class="line">        System.out.println(date);</span><br><span class="line">        //Date 对象------》long</span><br><span class="line">        //返回1970 年以来，Date 对象表示的毫秒数</span><br><span class="line">        System.out.println(&quot;中国人的风格：&quot;+date.toLocaleString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+        <p class="article-more-link">
+            <a href="/2017/03/13/Date/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
 </article>
-    </li>
 
 
-</ol></section>
 
+
+<nav class="page-nav">
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+</nav>
 
 
 </div>
