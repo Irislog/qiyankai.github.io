@@ -494,10 +494,468 @@ public class DelegateDemo {
 </article>
 
 
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2017/03/29/继承/">继承</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/29/继承/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-29T03:54:46.000Z" itemprop="datePublished">2017-03-29</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="继承的关系"><a href="#继承的关系" class="headerlink" title="继承的关系"></a>继承的关系</h3><blockquote>
+<p>在原有类的继承之上，加以拓展，从而产生新的子类的过程。子类其实就是父类的一种特殊情况。</p>
+</blockquote>
+<ul>
+<li>狗继承动物，狗是一种特殊的动物</li>
+<li>猫继承动物，猫是一种特殊的动物</li>
+</ul>
+<p><pre><br>    class Animal{<br>        void sleep(){<br>            System.out.println(“zZZ…”);<br>        }<br>    }<br>    class Cat{<br>        void catchMouse(){<br>            System.out.println(“捉老鼠”);<br>        }<br>    }<br>    class Dog{<br>        void watch(){<br>            System.out.println(“看门”);<br>        }<br>    }<br>    public static void main(String[] args){<br>        Animal a = new Animal();<br>    }<br></pre></p>
+<h3 id="继承的语法格式"><a href="#继承的语法格式" class="headerlink" title="继承的语法格式"></a>继承的语法格式</h3><blockquote>
+<p>class 子类名 extends 父类名{}</p>
+</blockquote>
+<h3 id="子类可以继承到父类哪些成员："><a href="#子类可以继承到父类哪些成员：" class="headerlink" title="子类可以继承到父类哪些成员："></a>子类可以继承到父类哪些成员：</h3><ol>
+<li>如果使用的public 或者protected 修饰。子类可以继承</li>
+<li>如果使用的是包访问权限（不写），如果父类与子类在同一个包下，可以继承，如果不在同一包下，不能继承</li>
+<li>父类的构造器，子类无法继承</li>
+<li>父类用private修饰，则子类不能继承</li>
+</ol>
+<h6 id="ex"><a href="#ex" class="headerlink" title="ex:"></a>ex:</h6><pre><code>Teacher teacher = new person();        //不可以！！！
+Person person = new Teacher();        //可以
+</code></pre><blockquote>
+<p>注意：<br>在java中的继承，只允许单继承，不允许继承多个类，但允许多重继承。</p>
+</blockquote>
+<h3 id="This关键字"><a href="#This关键字" class="headerlink" title="This关键字"></a>This关键字</h3><blockquote>
+<p>this 当前对象，哪一个对象调用了this所在的成员，this就是哪一个对象</p>
+</blockquote>
+<h6 id="this的使用场景："><a href="#this的使用场景：" class="headerlink" title="this的使用场景："></a>this的使用场景：</h6><ol>
+<li>解决成员变量和局部变量的二义性，必须使用setter方法</li>
+<li>同一个类中多个实例方法间互调</li>
+<li>将当前对象作为参数传递给另一个方法</li>
+<li>将当前对象作为方法的返回值</li>
+<li>构造器重载的相互作用，this必须写在第一行（this（）表示的就是无参数的构造器）</li>
+<li>static不能和this一起使用</li>
+</ol>
+<h3 id="方法覆盖"><a href="#方法覆盖" class="headerlink" title="方法覆盖"></a>方法覆盖</h3><ol>
+<li>子类拓展父类的时候，某个方法不适合子类本身</li>
+<li>方法重载Overload：两同一不同</li>
+<li>方法覆盖Override：一同两小一大<ul>
+<li>一同：方法的名称相同</li>
+<li>两小<ul>
+<li>子类方法的返回类型小于父类方法的返回类型</li>
+<li>子类方法不能抛出新的异常</li>
+</ul>
+</li>
+<li>一大：子类方法的修饰符必须大于父类方法的修饰符</li>
+</ul>
+</li>
+</ol>
+<h3 id="王道的做法："><a href="#王道的做法：" class="headerlink" title="王道的做法："></a>王道的做法：</h3><p>直接复制父类的方法定义到子类。重新定义方法体</p>
+<h3 id="判断是否覆盖的准则："><a href="#判断是否覆盖的准则：" class="headerlink" title="判断是否覆盖的准则："></a>判断是否覆盖的准则：</h3><p>java5后，用@Override判断方法是否覆盖</p>
+<blockquote>
+<p>注意：</p>
+<p>方法的覆盖、重载、只能对方法有效，类、字段、构造器没有覆盖的概念</p>
+</blockquote>
+<h3 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h3><ul>
+<li>this关键字：当前对象</li>
+<li>super关键字：当前对象的父类对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class SuperClass&#123;</span><br><span class="line">    public SuperClass() &#123;</span><br><span class="line">        System.out.println(&quot;super无参构造器&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public SuperClass(String x) &#123;</span><br><span class="line">        System.out.println(&quot;super有参构造器&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class SubClass extends SuperClass&#123;</span><br><span class="line">    public SubClass() &#123;</span><br><span class="line">        //默认会调用一次父类的无参构造函数</span><br><span class="line">        //super();</span><br><span class="line">        super(&quot;111&quot;);</span><br><span class="line">        System.out.println(&quot;SubClass的构造器&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class SuperDemo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //创建子类对象</span><br><span class="line">        SubClass subClass = new SubClass();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="super的应用场景："><a href="#super的应用场景：" class="headerlink" title="super的应用场景："></a>super的应用场景：</h5><ol>
+<li>在子类方法中，调用父类被覆盖的方法</li>
+<li>在子类方法中，返回父类被隐藏的成员变量（极少使用）</li>
+<li>在子类构造器中，调用父类的构造器父类的构造器，super([参数])</li>
+</ol>
+<h5 id="子类的创建过程："><a href="#子类的创建过程：" class="headerlink" title="子类的创建过程："></a>子类的创建过程：</h5><ol>
+<li>创建子类对象时，会调用子类的构造器，而再调用子类构造器之前，会先调用父类的构造器</li>
+<li>先对父类做初始化，再对子类做初始化</li>
+</ol>
+<h3 id="隐藏问题"><a href="#隐藏问题" class="headerlink" title="隐藏问题"></a>隐藏问题</h3><blockquote>
+<p>遮蔽：把之前的挡住了</p>
+</blockquote>
+<ol>
+<li>局部变量和成员变量同名，局部变量隐藏成员变量，使用this关键字解决</li>
+<li>在满足继承条件下（很少见）子类存在和弗雷同名的成员变量，子类变量隐藏了父类变量，使用super关键字解决</li>
+<li>在满足继承条件下（很少见）子类存在和父类相同的静态方法，静态方法不存在覆盖</li>
+</ol>
+<h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><blockquote>
+<p>Object类是所有类的根类</p>
+<p>一个类的直接或者间接的父类都是Object类</p>
+</blockquote>
+<h3 id="Object类到底是什么？"><a href="#Object类到底是什么？" class="headerlink" title="Object类到底是什么？"></a>Object类到底是什么？</h3><p>Object便是对象的意思，Object类就是对象的封装体，Object可以表示所有对象<br>所有对象，包括了数组都实现了Object类中的方法</p>
+<h3 id="equals"><a href="#equals" class="headerlink" title="==  equals"></a>==  equals</h3><p>判断当前对象this是否和Obj相等。<br>默认和==等价，默认情况下，比较的是内存地址</p>
+
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2017/03/26/接口/">接口</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/26/接口/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-26T03:54:46.000Z" itemprop="datePublished">2017-03-26</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>表示一种规范，用来定义一组方法，表示某一类事务具备的功能，其实现类必须实现该功能。</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
+<li>使用interface关键字声明</li>
+<li>接口能实例化</li>
+<li>一个类可实现（implement）多个接口（中间用逗号隔开），但只能继承一个类</li>
+<li>接口中的方法默认使用public abstract修饰</li>
+<li>接口中的成员变量public static final修饰</li>
+<li>接口中不能实现接口，但允许继承多个接口</li>
+<li>接口多继承时，实现最终接口的类必须把所有的父接口的方法实现</li>
+</ul>
+<pre>
+public class InterfaceDemo03 {
+    public static void main(String[] args) {
+        //提供键盘对象、鼠标对象
+        MainBoard.plugin(new Mouse());
+        MainBoard.plugin(new KeyBoard());
+        MainBoard.doWork();
+    }
+}
+interface IUSB{
+    //提供一个交换数据
+    void swapData();
+}
+//鼠标
+class Mouse implements IUSB{
+    @Override
+    public void swapData() {
+        System.out.println("鼠标在移动。。。");
+    }
+}
+//硬盘
+class KeyBoard implements IUSB{
+
+    @Override
+    public void swapData() {
+        System.out.println("敲打键盘。。。");
+    }
+}
+//主板
+class MainBoard{
+    //声明成员变量
+    private static IUSB[] usbs = new IUSB[2];
+    //声明一个控制当前下标的变量
+    private static int index = 0;
+    //写一个静态方法，用于将鼠标、键盘插入
+    public static void plugin(IUSB iusb){
+        if (usbs.length == index){
+            System.out.println("USB满了");
+            return;
+        }
+        usbs[index] = iusb;
+        index++;
+    }
+    //写一个方法，用于工作
+    public static void doWork(){
+        for (IUSB usb : usbs) {
+            usb.swapData();
+        }
+    }
+}
+</pre>
+
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2017/03/26/封装/">封装</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/26/封装/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-26T03:54:46.000Z" itemprop="datePublished">2017-03-26</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="封装的概念："><a href="#封装的概念：" class="headerlink" title="封装的概念："></a>封装的概念：</h3><ol>
+<li>把对象的状态和行为看成一个统一的整体，将而这存放在一个独立的模块中（类中）</li>
+<li><strong>信息隐藏</strong>：把不需要让外界知道的信息隐藏起来，尽可能的而隐藏对象的功能实现细节</li>
+</ol>
+<h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><ol>
+<li>封装什么类？</li>
+<li>封装什么行为和状态？</li>
+<li>如何隐藏信息？</li>
+</ol>
+<p>举例：<code>void save(String name,int age,int phoneNum,String email)</code>  </p>
+<p>但是保存的信息太多了</p>
+<h4 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h4><p>联系人封装到一个模块中（类），只需要在方法中传入一个封装好的实体类对象就可以了</p>
+<p><pre><br>    class linkman{<br>        String name;<br>        int age;<br>        ……<br>    }<br></pre></p>
+<h3 id="封装思想："><a href="#封装思想：" class="headerlink" title="封装思想："></a>封装思想：</h3><blockquote>
+<p>提倡尽可能的信息隐藏</p>
+</blockquote>
+<h3 id="取值和赋值："><a href="#取值和赋值：" class="headerlink" title="取值和赋值："></a>取值和赋值：</h3><blockquote>
+<p>字段需要暴露的操作方法：getter / setter</p>
+</blockquote>
+<ol>
+<li><p>取值，取出字段的值getter方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">数据类型 setName(形式参数 name)&#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>赋值，给字段设置值setter方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">数据类型 getName()&#123;</span><br><span class="line">	return name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="四大访问权限修饰符"><a href="#四大访问权限修饰符" class="headerlink" title="四大访问权限修饰符"></a>四大访问权限修饰符</h3><p>修饰变量方法:</p>
+<blockquote>
+<p>定义类的时候，使用public，可以不写</p>
+</blockquote>
+<ol>
+<li>private（类访问权限）：修饰字段，方法，构造器，只能在当前类中使用</li>
+<li>package（缺省/包访问权限）（不写时）：在同一个包中，才可以访问到</li>
+<li>protected（子类访问权限）：即使父类和子类不在同一包中，他也访问</li>
+<li>public（公共访问权限）：在任何地方都可以访问</li>
+</ol>
+<h3 id="1、package"><a href="#1、package" class="headerlink" title="1、package"></a>1、package</h3><ul>
+<li>在java中,package域名格式倒写<ul>
+<li><a href="http://www.taobao.com" target="_blank" rel="noopener">www.taobao.com</a></li>
+<li>com.taobao.www</li>
+</ul>
+</li>
+<li>如果有汉字 1234583<ul>
+<li>._day03</li>
+</ul>
+</li>
+<li>包名.子包.子包….</li>
+<li>package就是一种封装格式</li>
+</ul>
+<blockquote>
+<p>注意：</p>
+</blockquote>
+<ul>
+<li>包名得符合标识符规范（如果域名以数字打头用下划线开始）</li>
+<li>企业开发，用企业域名倒写</li>
+<li>包名都是小写字母组成</li>
+</ul>
+<h3 id="2、import"><a href="#2、import" class="headerlink" title="2、import"></a>2、import</h3><blockquote>
+<p>import 导入</p>
+</blockquote>
+<blockquote>
+<p>静态导入：告诉编译器去哪一个java.lang 包中的类去找某个静态方法或者字段</p>
+</blockquote>
+<pre><code>* java.lang
+*   语言核心类，系统自动导入，天天用
+
+* java.util
+*   工具类，集合框架，时间，日历
+
+* java.net
+*   网络编程接口和类以后要写和网络有关的
+
+* java.io
+*   流的接口和类，一些要读写文件或者图片格式化相关的类
+
+* java.text
+*   格式化相关的类，国际软件
+
+* java.sql
+*   接口和类连接数据库的接口和类
+
+* java.awt
+*   抽象窗口工具集的接口和类，界面开发
+
+* java.swing
+*   图形用户界面相关接口和类（可以跨平台）
+
+* import 语法：
+* import  类的全限定名
+
+* 注意：
+     * 只能表示类成员
+     尽量不要用static 导入
+</code></pre>
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2017/03/25/多态/">多态</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/25/多态/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-25T03:54:46.000Z" itemprop="datePublished">2017-03-25</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><p>多种形态，是指父类或接口定义的引用变量，可以只想子类或者实现子类的实例对象，在调用方法时，是调用该引用变量所指向的实例对象。  </p>
+<h3 id="满足多态的三个条件："><a href="#满足多态的三个条件：" class="headerlink" title="满足多态的三个条件："></a>满足多态的三个条件：</h3><ol>
+<li>继承</li>
+<li>重写</li>
+<li>父类引用指向子类实例对象  </li>
+</ol>
+<blockquote>
+<p>注意：父类引用对象不能使用子类新增方法</p>
+</blockquote>
+<h3 id="父类与子类关系"><a href="#父类与子类关系" class="headerlink" title="父类与子类关系"></a>父类与子类关系</h3><ul>
+<li>父类是父类</li>
+<li>子类是父类</li>
+<li>子类是子类</li>
+<li>子类不是其他类</li>
+<li>父类不是子类</li>
+</ul>
+<h5 id="EX-例子"><a href="#EX-例子" class="headerlink" title="EX:例子"></a>EX:例子</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Animal&#123;</span><br><span class="line">    String name;</span><br><span class="line">    int age;</span><br><span class="line">    public void eat()&#123;</span><br><span class="line">        System.out.println(&quot;动物在吃&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public void feed()&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Dog extends Animal&#123;//继承</span><br><span class="line">    String color;//字段   新增内容</span><br><span class="line">    public void eat()&#123;//重写</span><br><span class="line">        System.out.println(&quot;狗吃骨头&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Cat extends Animal&#123;</span><br><span class="line">    public void eat()&#123;</span><br><span class="line">        System.out.println(&quot;猫吃鱼&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h5><p>父类是父类<code>Animal animal = new Animal();</code>  </p>
+<p>子类是子类<code>Dog dog = new Dog();</code> <code>Cat cat = new Cat();</code>  </p>
+<p>子类是父类(父类引用指向子类对象)<br><code>Animal animal11 = new Dog();</code><br><code>animal11.eat();</code><br><code>Animal animal12 = new Cat();</code><br><code>animal12.eat();</code></p>
+<p>父类不是子类<code>Dog dog1 = new Animal();</code>  </p>
+<p>子类不是其他类<code>Cat cat1 = new Dog();</code>  </p>
+<h3 id="例问题："><a href="#例问题：" class="headerlink" title="例问题："></a>例问题：</h3><p><strong>饲养员：提供一个喂食的方法不存在多态的前提：饲养员类中需要存在多个喂食方法，面向不同的动物，提供不同喂食使用，饲养员中只需要使用一个喂食方法</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">class Person&#123;</span><br><span class="line">//    public void feed(Chicken chicken)&#123;</span><br><span class="line">//        chicken.feed();</span><br><span class="line">//    &#125;</span><br><span class="line">//    public void feed(Duck duck)&#123;</span><br><span class="line">//        duck.feed();</span><br><span class="line">//    &#125;</span><br><span class="line">    public void feed(Animal animal)&#123;</span><br><span class="line">        animal.eat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Chicken extends Animal&#123;</span><br><span class="line">    public void eat()&#123;</span><br><span class="line">        System.out.println(&quot;吃虫子&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Duck extends Animal&#123;</span><br><span class="line">    public void eat()&#123;</span><br><span class="line">        System.out.println(&quot;吃泥鳅&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class PolymorphicDemo02 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Person person = new Person();</span><br><span class="line">        //准备形参类型</span><br><span class="line">        Duck duck = new Duck();</span><br><span class="line">        person.feed(duck);</span><br><span class="line">        Chicken chicken = new Chicken();</span><br><span class="line">        person.feed(chicken);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="遗留问题："><a href="#遗留问题：" class="headerlink" title="遗留问题："></a>遗留问题：</h3><p><strong>使用多态后，无法调用子类的新增对象方法</strong></p>
+<p>解决方案：instanceof: 判断对象是否是某种类型，boolean ret = 对象 instanceof 类型，左边对象是右边类型，则返回true，否则是false<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class Fruit &#123;//水果类</span><br><span class="line">    public void print(Fruit fruit) &#123;</span><br><span class="line">        fruit.print();</span><br><span class="line">        if (fruit instanceof Apple)&#123;</span><br><span class="line">            ((Apple)fruit).mobile();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public void print() &#123;</span><br><span class="line">        System.out.println(&quot;kong&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Apple extends Fruit &#123;//苹果类</span><br><span class="line">    public void mobile()&#123;</span><br><span class="line">        System.out.println(&quot;手机&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public void print() &#123;</span><br><span class="line">        System.out.println(&quot;苹果&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Pear extends Fruit &#123;//梨类</span><br><span class="line">    public void print() &#123;</span><br><span class="line">        System.out.println(&quot;梨&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class PolymorphicDemo03 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Fruit fruit = new Fruit();</span><br><span class="line">        Apple apple = new Apple();</span><br><span class="line">        fruit.print(fruit);     //父类是父类</span><br><span class="line">        fruit.print(apple);     //子类是父类</span><br><span class="line">        Pear pear = new Pear();//子类是父类</span><br><span class="line">        fruit.print(pear);     //子类是父类</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2017/03/25/简单算法/">简单算法</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/25/简单算法/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-25T03:54:46.000Z" itemprop="datePublished">2017-03-25</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h3><ul>
+<li>选择排序<ul>
+<li>直接选择排序</li>
+<li>堆排序法</li>
+</ul>
+</li>
+<li>交换排序<ul>
+<li>冒泡排序</li>
+<li>快速排序</li>
+</ul>
+</li>
+<li>插入排序<ul>
+<li>直接插入排序</li>
+<li>二分法排序</li>
+<li>Shell排序</li>
+</ul>
+</li>
+<li>归并排序</li>
+</ul>
+<blockquote>
+<p>注意：<br>排序分为升序和降序，更常用冒泡排序、快速排序和选择排序<br>！熟练掌握一种排序</p>
+</blockquote>
+<h3 id="1、冒泡"><a href="#1、冒泡" class="headerlink" title="1、冒泡"></a>1、冒泡</h3><ol>
+<li>最简单的排序法</li>
+<li>思路：对未排序的元素从头到尾相邻比较，大则交换位置<h3 id="2、选择排序"><a href="#2、选择排序" class="headerlink" title="2、选择排序"></a>2、选择排序</h3></li>
+<li>思路：选定某个索引位置，和其他元素比较，大则交换位置，每轮比较得出当前最小值</li>
+</ol>
+
+        
+    </section>
+</article>
+
+
 
 
 <nav class="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/categories/后端/page/2/">2</a><a class="page-number" href="/categories/后端/page/3/">3</a><a class="page-number" href="/categories/后端/page/4/">4</a><a class="extend next" rel="next" href="/categories/后端/page/2/">下一页 &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/categories/后端/page/2/">2</a><a class="extend next" rel="next" href="/categories/后端/page/2/">下一页 &raquo;</a>
 </nav>
 
 

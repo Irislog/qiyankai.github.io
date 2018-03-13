@@ -132,15 +132,15 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2018/02/28/hello-world/">Hello World</a>
+            <a href="/2018/03/13/hello-world/">Hello World</a>
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="/2018/02/28/hello-world/">
+            <a class="article-date" href="/2018/03/13/hello-world/">
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2018-02-28T02:46:36.062Z" itemprop="datePublished">2018-02-28</time>
+    <time datetime="2018-03-13T09:21:37.597Z" itemprop="datePublished">2018-03-13</time>
 </a>
 
             
@@ -435,6 +435,46 @@ public class DelegateDemo {
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2017/03/30/模板方法/">模板方法</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/30/模板方法/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-30T03:54:46.000Z" itemprop="datePublished">2017-03-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="模板方法设计模式："><a href="#模板方法设计模式：" class="headerlink" title="模板方法设计模式："></a>模板方法设计模式：</h3><p>在父类的一个方法中定义一个总体的算法骨架，而将某一些步骤延迟到子类中去，不同的子类实现的细节不同，模板方法是的子类可以不改变父类的算法结果，而使得算法的细节步骤改变，抽象父类负责定义操作中的总体的算法骨架，某些具体实现步骤由子类决定  </p>
+<p><strong>注意：</strong><br>抽象的父类，只是定义了一个通用的算法，其实现必须依赖子类的辅助，模板方法作为模板样式不准子类复写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">abstract class AbstractOperateTimeLate&#123;</span><br><span class="line">    //模板方法</span><br><span class="line">    protected long getTatalTime()&#123;</span><br><span class="line">        //开始时间</span><br><span class="line">        long begin = System.currentTimeMillis();</span><br><span class="line">        ooxx();</span><br><span class="line">        //结束时间</span><br><span class="line">        long end = System.currentTimeMillis();</span><br><span class="line">        //结束时间减去开始时间</span><br><span class="line">        long time = end-begin;</span><br><span class="line">        return time;</span><br><span class="line">    &#125;</span><br><span class="line">    protected abstract void ooxx();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="案例：求String-的连续10000-次的时间"><a href="#案例：求String-的连续10000-次的时间" class="headerlink" title="案例：求String 的连续10000 次的时间"></a>案例：求String 的连续10000 次的时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class StringOperate extends AbstractOperateTimeLate&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void ooxx() &#123;</span><br><span class="line">        String ret = &quot;&quot;;</span><br><span class="line">        for (int i = 0; i &lt; 10000; i++) &#123;</span><br><span class="line">            ret += i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class StringOperate &#123;</span><br><span class="line">    protected long ooxx() &#123;</span><br><span class="line">        //开始时间</span><br><span class="line">        long begin = System.currentTimeMillis();</span><br><span class="line">        String ret = &quot;&quot;;</span><br><span class="line">        for (int i = 0; i &lt; 10000; i++) &#123;</span><br><span class="line">            ret += i;</span><br><span class="line">        &#125;</span><br><span class="line">        //结束时间</span><br><span class="line">        long end = System.currentTimeMillis();</span><br><span class="line">        //结束时间减去开始时间</span><br><span class="line">        long time = end - begin;</span><br><span class="line">        return time;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="案例：int-的连续10000-次的时间"><a href="#案例：int-的连续10000-次的时间" class="headerlink" title="案例：int 的连续10000 次的时间"></a>案例：int 的连续10000 次的时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class IntOperate extends AbstractOperateTimeLate&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void ooxx() &#123;</span><br><span class="line">        int ret = 0;</span><br><span class="line">        for (int i = 0; i &lt; 1000000000; i++) &#123;</span><br><span class="line">            ret += i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class IntOperate &#123;</span><br><span class="line">    protected long ooxx() &#123;</span><br><span class="line">        //开始时间</span><br><span class="line">        long begin = System.currentTimeMillis();</span><br><span class="line">        int ret = 0;</span><br><span class="line">        for (int i = 0; i &lt; 10000; i++) &#123;</span><br><span class="line">            ret += i;</span><br><span class="line">        &#125;</span><br><span class="line">        //结束时间</span><br><span class="line">        long end = System.currentTimeMillis();</span><br><span class="line">        //结束时间减去开始时间</span><br><span class="line">        long time = end - begin;</span><br><span class="line">        return time;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="案例：double-的连续10000-次的时间"><a href="#案例：double-的连续10000-次的时间" class="headerlink" title="案例：double 的连续10000 次的时间"></a>案例：double 的连续10000 次的时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class DoubleOperate extends AbstractOperateTimeLate&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void ooxx() &#123;</span><br><span class="line">        double ret = 0;</span><br><span class="line">        for (int i = 0; i &lt; 10000; i++) &#123;</span><br><span class="line">            ret += i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class DoubleOperate &#123;</span><br><span class="line">    protected long ooxx() &#123;</span><br><span class="line">        //开始时间</span><br><span class="line">        long begin = System.currentTimeMillis();</span><br><span class="line">        double ret = 0.0;</span><br><span class="line">        for (int i = 0; i &lt; 10000; i++) &#123;</span><br><span class="line">            ret += i;</span><br><span class="line">        &#125;</span><br><span class="line">        //结束时间</span><br><span class="line">        long end = System.currentTimeMillis();</span><br><span class="line">        //结束时间减去开始时间</span><br><span class="line">        long time = end - begin;</span><br><span class="line">        return time;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Demo调用"><a href="#Demo调用" class="headerlink" title="Demo调用"></a>Demo调用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class textDemo01 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        StringOperate stringOperate = new StringOperate();</span><br><span class="line">        System.out.println(stringOperate.getTatalTime());</span><br><span class="line"></span><br><span class="line">        IntOperate intOperate = new IntOperate();</span><br><span class="line">        System.out.println(intOperate.getTatalTime());</span><br><span class="line"></span><br><span class="line">        DoubleOperate doubleOperate = new DoubleOperate();</span><br><span class="line">        System.out.println(doubleOperate.getTatalTime());</span><br><span class="line"></span><br><span class="line">        AbstractOperateTimeLate abstractOperateTimeLate = new StringOperate();</span><br><span class="line">        System.out.println(abstractOperateTimeLate.getTatalTime());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2017/03/30/策略模式/">策略设计模式</a>
         </h1>
         
@@ -487,46 +527,6 @@ public class DelegateDemo {
 <h3 id="优势："><a href="#优势：" class="headerlink" title="优势："></a>优势：</h3><p>采用策略模式可以避免由于使用条件语句带来的代码混乱，提高应用程序的灵活性、条理性<br>可以随意的调用实现了接口的类的行为</p>
 <h3 id="开发中应用场景："><a href="#开发中应用场景：" class="headerlink" title="开发中应用场景："></a>开发中应用场景：</h3><p>  当一个用用程序需要是想一种特定的服务或者功能，而且该程序有多种实现方法的时候使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">//首先定义一个策略接口</span><br><span class="line">//三个锦囊</span><br><span class="line">interface IStrategy &#123;</span><br><span class="line">    //每个锦囊都是一个可执行的算法</span><br><span class="line">    public void operate();</span><br><span class="line">&#125;</span><br><span class="line">//然后再写三个妙计（实现类）</span><br><span class="line">//1、找乔国老，使孙权不能杀刘备</span><br><span class="line">class BackDoor implements IStrategy &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void operate() &#123;</span><br><span class="line">        System.out.println(&quot;求大佬帮忙，让吴国给孙权施加压力&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//2、求吴国老帮忙开个绿灯---&gt; 放行</span><br><span class="line">class GivenGreenLight implements IStrategy &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void operate() &#123;</span><br><span class="line">        System.out.println(&quot;开绿灯&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//3、孙夫人断后---&gt; 挡住追兵</span><br><span class="line">class BlockEnemy implements IStrategy&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void operate() &#123;</span><br><span class="line">        System.out.println(&quot;孙夫人断后&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//妙计有了，那些地方需要放这些妙计，放在锦囊里</span><br><span class="line">//锦囊</span><br><span class="line">class Context&#123;</span><br><span class="line">    //构造函数，你要使用哪条妙计</span><br><span class="line">    private IStrategy iStrategy;</span><br><span class="line"></span><br><span class="line">    public Context(IStrategy iStrategy) &#123;</span><br><span class="line">        this.iStrategy = iStrategy;</span><br><span class="line">    &#125;</span><br><span class="line">    //使用妙计，出招</span><br><span class="line">    public void operate()&#123;</span><br><span class="line">        this.iStrategy.operate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//赵云带着刘备去娶孙尚香，还有三个锦囊</span><br><span class="line">public class textDemo02 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">        //赵云出场，依次拆锦囊</span><br><span class="line">        Context context;</span><br><span class="line">        //刚到吴国，拆第一个</span><br><span class="line">        System.out.println(&quot;-----刚到吴国，拆第一个&quot;);</span><br><span class="line">        context = new Context(new BackDoor());</span><br><span class="line">        context.operate();</span><br><span class="line">        System.out.println(&quot;\n\n\n&quot;);</span><br><span class="line">        //刘备乐不思蜀，拆第二个</span><br><span class="line">        System.out.println(&quot;-----刘备乐不思蜀，拆第二个&quot;);</span><br><span class="line">        context = new Context(new GivenGreenLight());</span><br><span class="line">        context.operate();</span><br><span class="line">        System.out.println(&quot;\n\n\n&quot;);</span><br><span class="line">        //孙权的小兵追来了，怎么办？</span><br><span class="line">        System.out.println(&quot;-----孙权的小兵追来了，怎么办？&quot;);</span><br><span class="line">        context = new Context(new BlockEnemy());</span><br><span class="line">        context.operate();</span><br><span class="line"></span><br><span class="line">        /*</span><br><span class="line">        * 问题</span><br><span class="line">        * 赵云不知道那个策略，只知道拆第一个锦囊</span><br><span class="line">        * 但不知道第一个是BackDoor</span><br><span class="line">        * BackDoor，GiveGreen，BlockEnemy</span><br><span class="line">        *</span><br><span class="line">        * 策略设计模式的优点：高内聚，低耦合</span><br><span class="line">        *</span><br><span class="line">        **/</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2017/03/30/模板方法/">模板方法</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="/2017/03/30/模板方法/">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2017-03-30T03:54:46.000Z" itemprop="datePublished">2017-03-30</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Java/">Java</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h3 id="模板方法设计模式："><a href="#模板方法设计模式：" class="headerlink" title="模板方法设计模式："></a>模板方法设计模式：</h3><p>在父类的一个方法中定义一个总体的算法骨架，而将某一些步骤延迟到子类中去，不同的子类实现的细节不同，模板方法是的子类可以不改变父类的算法结果，而使得算法的细节步骤改变，抽象父类负责定义操作中的总体的算法骨架，某些具体实现步骤由子类决定  </p>
-<p><strong>注意：</strong><br>抽象的父类，只是定义了一个通用的算法，其实现必须依赖子类的辅助，模板方法作为模板样式不准子类复写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">abstract class AbstractOperateTimeLate&#123;</span><br><span class="line">    //模板方法</span><br><span class="line">    protected long getTatalTime()&#123;</span><br><span class="line">        //开始时间</span><br><span class="line">        long begin = System.currentTimeMillis();</span><br><span class="line">        ooxx();</span><br><span class="line">        //结束时间</span><br><span class="line">        long end = System.currentTimeMillis();</span><br><span class="line">        //结束时间减去开始时间</span><br><span class="line">        long time = end-begin;</span><br><span class="line">        return time;</span><br><span class="line">    &#125;</span><br><span class="line">    protected abstract void ooxx();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="案例：求String-的连续10000-次的时间"><a href="#案例：求String-的连续10000-次的时间" class="headerlink" title="案例：求String 的连续10000 次的时间"></a>案例：求String 的连续10000 次的时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class StringOperate extends AbstractOperateTimeLate&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void ooxx() &#123;</span><br><span class="line">        String ret = &quot;&quot;;</span><br><span class="line">        for (int i = 0; i &lt; 10000; i++) &#123;</span><br><span class="line">            ret += i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class StringOperate &#123;</span><br><span class="line">    protected long ooxx() &#123;</span><br><span class="line">        //开始时间</span><br><span class="line">        long begin = System.currentTimeMillis();</span><br><span class="line">        String ret = &quot;&quot;;</span><br><span class="line">        for (int i = 0; i &lt; 10000; i++) &#123;</span><br><span class="line">            ret += i;</span><br><span class="line">        &#125;</span><br><span class="line">        //结束时间</span><br><span class="line">        long end = System.currentTimeMillis();</span><br><span class="line">        //结束时间减去开始时间</span><br><span class="line">        long time = end - begin;</span><br><span class="line">        return time;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="案例：int-的连续10000-次的时间"><a href="#案例：int-的连续10000-次的时间" class="headerlink" title="案例：int 的连续10000 次的时间"></a>案例：int 的连续10000 次的时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class IntOperate extends AbstractOperateTimeLate&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void ooxx() &#123;</span><br><span class="line">        int ret = 0;</span><br><span class="line">        for (int i = 0; i &lt; 1000000000; i++) &#123;</span><br><span class="line">            ret += i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class IntOperate &#123;</span><br><span class="line">    protected long ooxx() &#123;</span><br><span class="line">        //开始时间</span><br><span class="line">        long begin = System.currentTimeMillis();</span><br><span class="line">        int ret = 0;</span><br><span class="line">        for (int i = 0; i &lt; 10000; i++) &#123;</span><br><span class="line">            ret += i;</span><br><span class="line">        &#125;</span><br><span class="line">        //结束时间</span><br><span class="line">        long end = System.currentTimeMillis();</span><br><span class="line">        //结束时间减去开始时间</span><br><span class="line">        long time = end - begin;</span><br><span class="line">        return time;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="案例：double-的连续10000-次的时间"><a href="#案例：double-的连续10000-次的时间" class="headerlink" title="案例：double 的连续10000 次的时间"></a>案例：double 的连续10000 次的时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class DoubleOperate extends AbstractOperateTimeLate&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void ooxx() &#123;</span><br><span class="line">        double ret = 0;</span><br><span class="line">        for (int i = 0; i &lt; 10000; i++) &#123;</span><br><span class="line">            ret += i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class DoubleOperate &#123;</span><br><span class="line">    protected long ooxx() &#123;</span><br><span class="line">        //开始时间</span><br><span class="line">        long begin = System.currentTimeMillis();</span><br><span class="line">        double ret = 0.0;</span><br><span class="line">        for (int i = 0; i &lt; 10000; i++) &#123;</span><br><span class="line">            ret += i;</span><br><span class="line">        &#125;</span><br><span class="line">        //结束时间</span><br><span class="line">        long end = System.currentTimeMillis();</span><br><span class="line">        //结束时间减去开始时间</span><br><span class="line">        long time = end - begin;</span><br><span class="line">        return time;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Demo调用"><a href="#Demo调用" class="headerlink" title="Demo调用"></a>Demo调用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class textDemo01 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        StringOperate stringOperate = new StringOperate();</span><br><span class="line">        System.out.println(stringOperate.getTatalTime());</span><br><span class="line"></span><br><span class="line">        IntOperate intOperate = new IntOperate();</span><br><span class="line">        System.out.println(intOperate.getTatalTime());</span><br><span class="line"></span><br><span class="line">        DoubleOperate doubleOperate = new DoubleOperate();</span><br><span class="line">        System.out.println(doubleOperate.getTatalTime());</span><br><span class="line"></span><br><span class="line">        AbstractOperateTimeLate abstractOperateTimeLate = new StringOperate();</span><br><span class="line">        System.out.println(abstractOperateTimeLate.getTatalTime());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
     </section>
 </article>
@@ -641,6 +641,101 @@ Person person = new Teacher();        //可以
 </blockquote>
 <h3 id="Object类到底是什么？"><a href="#Object类到底是什么？" class="headerlink" title="Object类到底是什么？"></a>Object类到底是什么？</h3><p>Object便是对象的意思，Object类就是对象的封装体，Object可以表示所有对象<br>所有对象，包括了数组都实现了Object类中的方法</p>
 <h3 id="equals"><a href="#equals" class="headerlink" title="==  equals"></a>==  equals</h3><p>判断当前对象this是否和Obj相等。<br>默认和==等价，默认情况下，比较的是内存地址</p>
+
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2017/03/26/接口/">接口</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="/2017/03/26/接口/">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2017-03-26T03:54:46.000Z" itemprop="datePublished">2017-03-26</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>表示一种规范，用来定义一组方法，表示某一类事务具备的功能，其实现类必须实现该功能。</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
+<li>使用interface关键字声明</li>
+<li>接口能实例化</li>
+<li>一个类可实现（implement）多个接口（中间用逗号隔开），但只能继承一个类</li>
+<li>接口中的方法默认使用public abstract修饰</li>
+<li>接口中的成员变量public static final修饰</li>
+<li>接口中不能实现接口，但允许继承多个接口</li>
+<li>接口多继承时，实现最终接口的类必须把所有的父接口的方法实现</li>
+</ul>
+<pre>
+public class InterfaceDemo03 {
+    public static void main(String[] args) {
+        //提供键盘对象、鼠标对象
+        MainBoard.plugin(new Mouse());
+        MainBoard.plugin(new KeyBoard());
+        MainBoard.doWork();
+    }
+}
+interface IUSB{
+    //提供一个交换数据
+    void swapData();
+}
+//鼠标
+class Mouse implements IUSB{
+    @Override
+    public void swapData() {
+        System.out.println("鼠标在移动。。。");
+    }
+}
+//硬盘
+class KeyBoard implements IUSB{
+
+    @Override
+    public void swapData() {
+        System.out.println("敲打键盘。。。");
+    }
+}
+//主板
+class MainBoard{
+    //声明成员变量
+    private static IUSB[] usbs = new IUSB[2];
+    //声明一个控制当前下标的变量
+    private static int index = 0;
+    //写一个静态方法，用于将鼠标、键盘插入
+    public static void plugin(IUSB iusb){
+        if (usbs.length == index){
+            System.out.println("USB满了");
+            return;
+        }
+        usbs[index] = iusb;
+        index++;
+    }
+    //写一个方法，用于工作
+    public static void doWork(){
+        for (IUSB usb : usbs) {
+            usb.swapData();
+        }
+    }
+}
+</pre>
 
         
     </section>
@@ -770,101 +865,6 @@ Person person = new Teacher();        //可以
      * 只能表示类成员
      尽量不要用static 导入
 </code></pre>
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2017/03/26/接口/">接口</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="/2017/03/26/接口/">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2017-03-26T03:54:46.000Z" itemprop="datePublished">2017-03-26</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Java/">Java</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>表示一种规范，用来定义一组方法，表示某一类事务具备的功能，其实现类必须实现该功能。</p>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
-<li>使用interface关键字声明</li>
-<li>接口能实例化</li>
-<li>一个类可实现（implement）多个接口（中间用逗号隔开），但只能继承一个类</li>
-<li>接口中的方法默认使用public abstract修饰</li>
-<li>接口中的成员变量public static final修饰</li>
-<li>接口中不能实现接口，但允许继承多个接口</li>
-<li>接口多继承时，实现最终接口的类必须把所有的父接口的方法实现</li>
-</ul>
-<pre>
-public class InterfaceDemo03 {
-    public static void main(String[] args) {
-        //提供键盘对象、鼠标对象
-        MainBoard.plugin(new Mouse());
-        MainBoard.plugin(new KeyBoard());
-        MainBoard.doWork();
-    }
-}
-interface IUSB{
-    //提供一个交换数据
-    void swapData();
-}
-//鼠标
-class Mouse implements IUSB{
-    @Override
-    public void swapData() {
-        System.out.println("鼠标在移动。。。");
-    }
-}
-//硬盘
-class KeyBoard implements IUSB{
-
-    @Override
-    public void swapData() {
-        System.out.println("敲打键盘。。。");
-    }
-}
-//主板
-class MainBoard{
-    //声明成员变量
-    private static IUSB[] usbs = new IUSB[2];
-    //声明一个控制当前下标的变量
-    private static int index = 0;
-    //写一个静态方法，用于将鼠标、键盘插入
-    public static void plugin(IUSB iusb){
-        if (usbs.length == index){
-            System.out.println("USB满了");
-            return;
-        }
-        usbs[index] = iusb;
-        index++;
-    }
-    //写一个方法，用于工作
-    public static void doWork(){
-        for (IUSB usb : usbs) {
-            usb.swapData();
-        }
-    }
-}
-</pre>
-
         
     </section>
 </article>
